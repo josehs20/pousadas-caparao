@@ -15,4 +15,7 @@ mix.js('resources/js/app.js', 'public/js')
     .postCss('resources/css/app.css', 'public/css', [
         //
     ])
+    .sass('node_modules/bootstrap/scss/bootstrap.scss', 'public/css')
+    .js('node_modules/jquery/dist/jquery.js', 'public/js')
+    .js('node_modules/bootstrap/dist/js/bootstrap.bundle.js', 'public/js')
     .postCss('node_modules/bootstrap-icons/font/bootstrap-icons.css', 'public/css');

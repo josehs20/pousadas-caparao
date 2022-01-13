@@ -12,9 +12,10 @@
 
     {{-- importando bootstrap-icons --}}
     <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap-icons.css') }}">
-    
     {{-- importando main.css --}}
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/sass/main.css') }}">
+    {{-- importando bootstrap --}}
+    <link rel="stylesheet" href="{{asset('css/bootstrap.css')}}">
 
 </head>
 
@@ -22,6 +23,10 @@
 
     {{-- importando conteudo do header --}} @include('secoes.header')
     {{-- importando conteudo da view welcome --}} @yield('conteudo')
+
+    {{-- importando arquivos js para o bootstrap funcionar --}}
+    <script src="{{ asset('js/jquery.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.bundle.js') }}"></script>
 </body>
 
 </html>
