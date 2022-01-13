@@ -10,20 +10,20 @@
     {{-- importanto favicon --}}
     <link rel="shortcut icon" href="{{ asset('assets/images/favicon.png') }}" type="image/x-icon">
     {{-- importando bootstrap-icons --}}
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap-icons.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap-icons.css') }}">
     {{-- importando main.css --}}
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/sass/main.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/sass/main.css') }}">
     {{-- importando bootstrap.css --}}
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.css') }}">
+    <link rel="stylesheet"  href="{{ asset('css/bootstrap.css') }}">
 
 
 </head>
 
 <body>
-
     {{-- importando conteudo do header --}} @include('secoes.header')
     {{-- importando conteudo da view welcome --}} @yield('conteudo')
 
+    <script src="{{ asset('js/main.js') }}"></script>
     <script src="{{ asset('js/jquery.js') }}"></script>
     <script src="{{ asset('js/bootstrap.js') }}"></script>
 </body>
