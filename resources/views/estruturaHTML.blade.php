@@ -7,20 +7,21 @@
 
     <title>Pousadas Caparaó</title>
 
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
     {{-- importanto favicon --}}
     <link rel="shortcut icon" href="{{ asset('assets/images/favicon.png') }}" type="image/x-icon">
-    {{-- importando bootstrap-icons --}}
-    <link rel="stylesheet" href="{{ asset('css/bootstrap-icons.css') }}">
     {{-- importando main.css --}}
     <link rel="stylesheet" href="{{ asset('assets/sass/main.css') }}">
+    {{-- importando bootstrap-icons --}}
+    <link rel="stylesheet" href="{{ asset('css/bootstrap-icons.css') }}">
     {{-- importando bootstrap.css --}}
     <link rel="stylesheet"  href="{{ asset('css/bootstrap.css') }}">
-
 
 </head>
 
 <body>
-    {{-- importando conteudo do header --}} @include('secoes.header')
     {{-- importando conteudo da view welcome --}} @yield('conteudo')
 
     <script src="{{ asset('js/main.js') }}"></script>
