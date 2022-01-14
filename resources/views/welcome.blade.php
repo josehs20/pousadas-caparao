@@ -3,18 +3,6 @@
 @section('conteudo')
 
     @include('secoes.header')
-    <div><h1>Pousada</h1></div>
-    <div><h1>Pousada</h1></div>
-    <div><h1>Pousada</h1></div>
-    <div><h1>Pousada</h1></div>
-    <div><h1>Pousada</h1></div>
-    <div><h1>Pousada</h1></div>
-    <div><h1>Pousada</h1></div>
-    <div><h1>Pousada</h1></div>
-    <div><h1>Pousada</h1></div>
-    <div><h1>Pousada</h1></div>
-    <div><h1>Pousada</h1></div>
-    <div><h1>Pousada</h1></div>
-    <div><h1>Pousada</h1></div>
-    <div><h1>Pousada</h1></div>
+    @include('secoes.main')
+    
 @endsection

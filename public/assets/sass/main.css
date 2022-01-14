@@ -99,6 +99,39 @@ nav {
           transform: rotate(45deg) translate(-3px, -3px);
 }
 
+.div-titulo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-top: 200px;
+}
+
+.div-titulo-interno {
+  text-align: center;
+}
+
+.introducao {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 70px;
+}
+
+.introducao div {
+  width: 100%;
+  height: 100%;
+}
+
+.titulo {
+  color: #D6AD60;
+}
+
 @media screen and (max-width: 1000px) {
   body {
     overflow-x: hidden;
