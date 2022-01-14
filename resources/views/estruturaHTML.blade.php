@@ -7,6 +7,9 @@
 
     <title>Pousadas Caparaó</title>
 
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
     {{-- importanto favicon --}}
     <link rel="shortcut icon" href="{{ asset('assets/images/favicon.png') }}" type="image/x-icon">
     {{-- importando main.css --}}
@@ -19,7 +22,6 @@
 </head>
 
 <body>
-    {{-- importando conteudo do header --}} @include('secoes.header')
     {{-- importando conteudo da view welcome --}} @yield('conteudo')
 
     <script src="{{ asset('js/main.js') }}"></script>
