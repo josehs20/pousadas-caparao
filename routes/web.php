@@ -15,11 +15,6 @@ use App\Http\Controllers\Admin\PousadasController;
 
 Route::get('/', [\App\Http\Controllers\PaginaPrincipalController::class, 'paginaPrincipal'])->name('pagina-principal');
 
-
-
-//Route::resource('admin/pousadas', App\Http\Controllers\Admin\PousadasController::class)->middleware("isAdmin");
-//Route::resource('admin/pousadas', 'Admin\PousadasController', ['prefix' => 'admin'])->middleware("isAdmin");
-
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->middleware("isAdmin");

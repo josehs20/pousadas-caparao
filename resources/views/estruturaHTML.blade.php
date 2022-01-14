@@ -9,13 +9,12 @@
 
     {{-- importanto favicon --}}
     <link rel="shortcut icon" href="{{ asset('assets/images/favicon.png') }}" type="image/x-icon">
-    {{-- importando bootstrap-icons --}}
-    <link rel="stylesheet" href="{{ asset('css/bootstrap-icons.css') }}">
     {{-- importando main.css --}}
     <link rel="stylesheet" href="{{ asset('assets/sass/main.css') }}">
+    {{-- importando bootstrap-icons --}}
+    <link rel="stylesheet" href="{{ asset('css/bootstrap-icons.css') }}">
     {{-- importando bootstrap.css --}}
     <link rel="stylesheet"  href="{{ asset('css/bootstrap.css') }}">
-
 
 </head>
 

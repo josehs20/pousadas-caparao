@@ -1,5 +1,5 @@
 {{-- navbar div --}}
-<nav class="container" id="navbar">
+<nav class="containerr" id="navbar">        
     {{-- ↓↓ logo ↓↓ --}}
     <div class="logo">
         <a href="/"><img src="{{ asset('assets/images/logo.png') }}" alt="Logo"></a>
