@@ -6,19 +6,16 @@
     </div>
     {{-- ↓↓ ancoras para as partes da pagina ↓↓ --}}
     <ul class="nav-items" id="nav-items">
-        <a href="/">
+        <a href="#inicio">
             <li class="active">Principal</li>
         </a>
-        <a href="/">
-            <li>Quem sou</li>
+        <a href="#introducao">
+            <li>Sobre nos</li>
         </a>
-        <a href="/">
-            <li>O que faço</li>
+        <a href="#pousadas">
+            <li>Pousadas</li>
         </a>
-        <a href="/">
-            <li>Minhas habilidades</li>
-        </a>
-        <a href="/">
+        <a href="#rodape">
             <li>Contato</li>
         </a>
     </ul>

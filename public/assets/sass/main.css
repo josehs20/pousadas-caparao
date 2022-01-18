@@ -116,11 +116,27 @@ nav {
   text-align: center;
 }
 
+main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
 .introducao {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   padding: 70px;
+  margin-bottom: 100px;
 }
 
 .introducao div {
@@ -130,6 +146,108 @@ nav {
 
 .titulo {
   color: #D6AD60;
+}
+
+.pousadas-cadastradas {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  overflow: hidden;
+  border: 4px solid red;
+  margin-bottom: 100px;
+  padding: 10px;
+  width: 100%;
+}
+
+footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  width: 100%;
+}
+
+footer div {
+  text-align: center;
+}
+
+.footer {
+  border-top: 4px solid #122620;
+  background-color: #D6AD60;
+  padding: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.item-rodape {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin-bottom: 70px;
+}
+
+.formulario-rodape {
+  width: 400px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 10px;
+}
+
+.formulario-rodape input {
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin-bottom: 7px;
+}
+
+.formulario-rodape textarea {
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin-bottom: 7px;
+}
+
+.formulario-rodape button {
+  border-radius: 10px;
+  padding: 5px 10px;
+  margin-bottom: 7px;
+  background-color: #122620;
+  color: #fff;
+}
+
+.formulario-rodape button:hover {
+  border: 5px solid #F4EBD0;
+  color: #F4EBD0;
+  font-weight: bold;
+}
+
+.copyright {
+  background-color: #D6AD60;
+  padding: 10px;
 }
 
 @media screen and (max-width: 1000px) {
@@ -170,5 +288,17 @@ nav {
 .go-back {
   -webkit-transform: translateX(0%);
           transform: translateX(0%);
+}
+
+@media screen and (max-width: 1000px) {
+  .introducao {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .introducao div {
+    margin-bottom: 10px;
+  }
 }
 /*# sourceMappingURL=main.css.map */

@@ -102,9 +102,17 @@ nav{
 // ------------------- end header -------------------
 
 // ------------------- main ------------------------------
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
 .introducao{
     display: flex;
     padding: 70px;
+    margin-bottom: 100px;
     div{
         width: 100%;
         height: 100%;
@@ -113,7 +121,78 @@ nav{
 .titulo{
     color: $secondary-color;
 }
+.pousadas-cadastradas{
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    border: 4px solid red;
+    margin-bottom: 100px;
+    padding: 10px;
+    width: 100%;
+}
 // ------------------- end main --------------------------
+
+// ----------------------- rodape ----------------------------
+footer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    width: 100%;
+    div{
+        text-align: center;
+    }
+}
+
+.footer{
+    border-top: 4px solid $primary-color ;
+    background-color: $secondary-color;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.item-rodape{
+    width: fit-content;
+    margin-bottom: 70px;
+}
+
+.formulario-rodape{
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    input{
+        border-radius: 5px;
+        padding: 5px 10px;
+        margin-bottom: 7px;
+    }
+    textarea{
+        border-radius: 5px;
+        padding: 5px 10px;
+        margin-bottom: 7px;
+    }
+    button{
+        border-radius: 10px;
+        padding: 5px 10px;
+        margin-bottom: 7px;
+        background-color: $primary-color;
+        color: #fff;
+    }
+    button:hover{
+        border: 5px solid $accent-color;
+        color: $accent-color;
+        font-weight: bold;
+    }
+}
+
+.copyright{
+    background-color: $secondary-color;
+    padding:10px;
+}
+// --------------------- end rodape --------------------------
 
 // ++++++++++++++++++++++++++++ css responsive ++++++++++++++++++++++++++++
 
@@ -150,5 +229,15 @@ nav{
 }
 // ------------------- end responsive navbar -------------------
 
+//------------------------- responsive main --------------------------
+@media screen and (max-width: 1000px){
+    .introducao{
+        flex-direction: column;
+        div{
+            margin-bottom: 10px;
+        }
+    }
+}
+//------------------------- end responsive main --------------------------
 
 // +++++++++++++++++++++++++++ end responsive +++++++++++++++++++++++++++
