@@ -1,10 +1,7 @@
 @extends('estruturaHTML')
 
 @section('conteudo')
-    <h1>HOME</h1>
-    <h2>Em densevolvimento</h2>
-    <h3>Necessário finalizar a página principal</h3>
-    {{-- <div id="app">
+    <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
@@ -65,5 +62,5 @@
         <main class="py-4">
             @yield('content')
         </main>
-    </div> --}}
+    </div>
 @endsection

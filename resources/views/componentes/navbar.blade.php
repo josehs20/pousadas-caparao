@@ -9,14 +9,11 @@
         <a href="/">
             <li class="active">Principal</li>
         </a>
-        <a href="/">
-            <li>Quem sou</li>
+        <a href="#introducao">
+            <li>Sobre nos</li>
         </a>
-        <a href="/">
-            <li>O que faço</li>
-        </a>
-        <a href="/">
-            <li>Minhas habilidades</li>
+        <a href="#pousadas">
+            <li>Pousadas</li>
         </a>
         <a href="/">
             <li>Contato</li>
