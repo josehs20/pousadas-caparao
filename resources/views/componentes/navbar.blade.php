@@ -6,7 +6,7 @@
     </div>
     {{-- ↓↓ ancoras para as partes da pagina ↓↓ --}}
     <ul class="nav-items" id="nav-items">
-        <a href="/">
+        <a href="#inicio">
             <li class="active">Principal</li>
         </a>
         <a href="#introducao">
@@ -15,7 +15,7 @@
         <a href="#pousadas">
             <li>Pousadas</li>
         </a>
-        <a href="/">
+        <a href="#rodape">
             <li>Contato</li>
         </a>
     </ul>

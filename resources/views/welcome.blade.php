@@ -2,7 +2,7 @@
 
 @section('conteudo')
     {{-- ||||||||||||||||||||||| cabeçalho ||||||||||||||||||||||| --}}
-    <header>
+    <header id="inicio">
         @include('componentes.navbar')
 
         <div class="div-titulo">
@@ -31,7 +31,7 @@
                 </div>
             </div>
             {{-- ---------------------------------------------------- --}}
-            {{-- Textos ao lado do slider --}}
+            {{-- textos ao lado do slider --}}
             <div>
                 <h2 class="titulo">Introdução</h2>
                 <p>Introdução introdução introdução introdução introdução introdução
@@ -98,29 +98,7 @@
         {{-- ---------------------------------------------------- --}}
     </main>
 
-    <footer>
-        <div class="footer">
-            <div class="item-rodape">
-                <h3>Contato</h3>
-                <hr>
-                <p>Celular: (xx) xxxxx-xxxx</p>
-                <p>Email: xxxxxxxxx@xxxxx</p>
-            </div>
-            <div>
-                <h2>Fomulário para contato</h2>
-                <form class="formulario-rodape">
-                    <input name="nome" type="text" placeholder="Seu nome">
-                    <input name="email" type="text" placeholder="Seu email">
-                    <textarea name="mensagem" id="" cols="30" rows="5" placeholder="Mensagem"></textarea>
-                    <button type="submit">ENVIAR</button>
-                </form>
-            </div>
-        </div>
-
-        <div class="copyright">
-            <p> Copyright &copy; <?php echo date("Y"); ?> Desenvolvido por <b>José Henrique</b> e <b>Jônatas M Campos</b> </p>
-        </div>
-    </footer>
-
+    {{-- incluindo rodape  --}}
+    @include('componentes.footer')
 
 @endsection
