@@ -9,6 +9,6 @@ class PousadasController extends Controller
 {
     public function index()
     {
-        dd('asa');
+        return view('admin.index');
     }
 }
