@@ -15,7 +15,7 @@ class CreateInfoPrincipalTable extends Migration
     {
         Schema::create('info_principal', function (Blueprint $table) {
             $table->id();
-            $table->string('navBar')->nullable();
+            $table->string('tituloPrincipal')->nullable();
             $table->string('titulo')->nullable();
             $table->string('subtitulo')->nullable();
             $table->string('introducaoImage')->nullable();

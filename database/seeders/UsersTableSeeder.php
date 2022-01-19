@@ -28,7 +28,7 @@ class UsersTableSeeder extends Seeder
 
         DB::table('info_principal')->insert([
             
-            'navBar' => 'aaaaaaaaaaa',
+            'tituloPrincipal' => 'Titulo Principal',
             'titulo' => 'titulo',
             'subtitulo' => 'subtitulo',
             'titulointroducao' => 'titulointroducao',
