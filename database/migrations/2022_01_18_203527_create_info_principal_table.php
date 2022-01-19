@@ -19,7 +19,7 @@ class CreateInfoPrincipalTable extends Migration
             $table->string('titulo')->nullable();
             $table->string('subtitulo')->nullable();
             $table->string('introducaoImage')->nullable();
-            $table->string('Titulointroducao')->nullable();
+            $table->string('titulointroducao')->nullable();
             $table->string('introducao', 500)->nullable();
             $table->string('sobreNos', 500)->nullable();
             $table->string('pousadaImages')->nullable();       

@@ -25,5 +25,15 @@ class UsersTableSeeder extends Seeder
             'updated_at' => now(),
             'perfil'    => 'administrador'
         ]);
+
+        DB::table('info_principal')->insert([
+            
+            'navBar' => 'aaaaaaaaaaa',
+            'titulo' => 'titulo',
+            'subtitulo' => 'subtitulo',
+            'titulointroducao' => 'titulointroducao',
+            'introducao' => 'introducao',
+            'sobreNos'    => 'sobreNos'
+        ]);
     }
 }
