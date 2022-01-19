@@ -4,11 +4,11 @@
     {{-- ||||||||||||||||||||||| cabeçalho ||||||||||||||||||||||| --}}
     <header id="inicio">
         @include('componentes.navbar')
-      
+
         <div class="div-titulo">
             <div class="div-titulo-interno">
-                <h1>Pousadas Caparao</h1>
-                <p> {{$info->titulo}} <br> {{$info->subtitulo}}</p>
+                <h1> {{ $info->tituloPrincipal }}</h1>
+                <p> {{ $info->titulo }} <br> {{ $info->subtitulo }}</p>
             </div>
         </div>
 
@@ -19,41 +19,39 @@
 
 
 
-    <form action="{{ route('info.store')}}" method="POST">
+    <form action="{{ route('info.store') }}" method="POST">
         @csrf
         <div class="form-row">
-
-
-          <div class="form-group">
-            <label for="inputAddress">Titulo</label>
-            <input name="titulo" type="text" class="form-control" id="inputAddress" placeholder="pousadas Info">
-          </div>
-          <div class="form-group">
-            <label for="inputAddress">subTitulo</label>
-            <input name="subtitulo" type="text" class="form-control" id="inputAddress" placeholder="pousadas Info">
-          </div>
-
-          <div class="form-group col-md-6">
-            <label for="inputPassword4">introducaoImage</label>
-            <input name="introducaoImage" type="image" class="form-control" id="inputPassword4" placeholder="obre nos">
-          </div>
+            <div class="form-group">
+                <label for="inputAddress">Titulo principal</label>
+                <input name="tituloPrincipal" type="text" class="form-control" id="inputAddress"
+                    placeholder="pousadas Info">
+            </div>
+            <div class="form-group">
+                <label for="inputAddress">Titulo</label>
+                <input name="titulo" type="text" class="form-control" id="inputAddress" placeholder="pousadas Info">
+            </div>
+            <div class="form-group">
+                <label for="inputAddress">subTitulo</label>
+                <input name="subtitulo" type="text" class="form-control" id="inputAddress" placeholder="pousadas Info">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputPassword4">introducaoImage</label>
+                <input name="introducaoImage" type="image" class="form-control" id="inputPassword4"
+                    placeholder="obre nos">
+            </div>
         </div>
-
-
         <div class="form-group">
             <label for="inputAddress">introducao</label>
-            <input name="introducao" type="text" class="form-control" id="inputAddress" placeholder="imageItroducao">
-          </div>
-
-
-
-        <div class="form-group">
-          <label for="inputAddress"> sobreNos</label>
-          <input name="sobreNos" type="text" class="form-control" id="inputAddress" placeholder="pousada">
+            <input name="titulointroducao" type="text" class="form-control" id="inputAddress" placeholder="imageItroducao">
         </div>
-       
+        <div class="form-group">
+            <label for="inputAddress"> sobreNos</label>
+            <input name="introducao" type="text" class="form-control" id="inputAddress" placeholder="pousada">
+        </div>
+
         <button type="submit" class="btn btn-primary">Sign in</button>
-      </form>
+    </form>
 
 
 
@@ -81,8 +79,8 @@
             {{-- ---------------------------------------------------- --}}
             {{-- textos ao lado do slider --}}
             <div>
-                <h2 class="titulo">{{$info->titulointroducao}}</h2>
-                <p>{{$info->introducao}}
+                <h2 class="titulo">{{ $info->titulointroducao }}</h2>
+                <p>{{ $info->introducao }}
                 </p>
             </div>
             {{-- ---------------------------------------------------- --}}
@@ -141,7 +139,7 @@
         {{-- ---------------------------------------------------- --}}
     </main>
 
-    {{-- incluindo rodape  --}}
+    {{-- incluindo rodape --}}
     @include('componentes.footer')
 
 @endsection

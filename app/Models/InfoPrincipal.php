@@ -9,7 +9,7 @@ class InfoPrincipal extends Model
 {
     protected $table = 'info_Principal';
     protected $fillable = [
-    'navBar',
+    'tituloPrincipal',
     'titulo',
     'subtitulo',
     'introducaoImage', 
