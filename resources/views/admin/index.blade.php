@@ -16,9 +16,6 @@
 
     {{-- ||||||||||||||||||||||| conteudo ||||||||||||||||||||||| --}}
 
-
-
-
     <form action="{{ route('info.store') }}" method="POST">
         @csrf
         <div class="form-row">

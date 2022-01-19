@@ -84,9 +84,9 @@ jQuery(document).ready(function() {
     /*
         Background slideshow
     */
-	$('.top-content').backstretch("assets/img/backgrounds/1.jpg");
-    $('.section-4-container').backstretch("assets/img/backgrounds/2.jpg");
-    $('.section-6-container').backstretch("assets/img/backgrounds/1.jpg");
+	// $('.top-content').backstretch("assets/images/pico-bandeira-sol.jpeg");
+    // $('.section-4-container').backstretch("assets/images/pico-bandeira-sol.jpeg");
+    // $('.section-6-container').backstretch("assets/images/pico-bandeira-sol.jpeg");
     
     /*
 	    Wow
