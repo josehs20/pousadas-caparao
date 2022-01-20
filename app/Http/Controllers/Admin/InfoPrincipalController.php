@@ -17,7 +17,6 @@ class InfoPrincipalController extends Controller
     public function index(Request $request)
     {
         $info = InfoPrincipal::first();
-
         return view('admin.index', compact('info'));
     }
 
