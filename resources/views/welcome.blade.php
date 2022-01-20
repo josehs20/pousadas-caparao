@@ -1,7 +1,6 @@
 @extends('estruturaHTML')
 
 @section('conteudo')
-
 		<!-- Wrapper -->
     	<div class="wrapper">
 

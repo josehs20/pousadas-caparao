@@ -1,11 +1,8 @@
 @extends('estruturaHTML')
 
 @section('conteudo')
-    <br>
-    <br>
-    <br>
     <!-- Formulario -->
-    <form action="{{ route('info.store') }}" method="POST">
+    {{-- <form action="{{ route('info.store') }}" method="POST">
         @csrf
         <div class="form-row">
             <div class="form-group">
@@ -39,7 +36,7 @@
         </div>
 
         <button type="submit" class="btn btn-primary">Sign in</button>
-    </form>
+    </form> --}}
     <!-- End Formulario -->
 
     <!-- --------------------------------------------------- -->
@@ -56,6 +53,220 @@
         <!-- Content -->
         <div class="content">
 
+            <!-- ------------------- TODOS OS MODAIS ------------------- -->
+
+            <!-- Modal Titulo Principal --------------------------------------------------- -->
+            <div class="modal fade" id="modalTituloPrincipal" tabindex="-1" role="dialog"
+                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <form action="{{ route('info.store') }}" method="POST">
+                            @csrf
+                            <div class="modal-header">
+                                <!-- ↓↓ Titulo do modal ↓↓ -->
+                                <p class="mx-auto">
+                                    Título Principal atual: <strong style="font-size: 20px;" class="modal-title"
+                                        id="exampleModalLabel">{{ $info->tituloPrincipal }}</strong>
+                                </p>
+                                <!-- --------------- -->
+                                <!-- ↓↓ Botao para fechar o modal ↓↓ -->
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <!-- ------------------------- -->
+                            </div>
+                            <!-- ↓↓ Input para alterar titulo principal ↓↓ --------------------- -->
+                            <div class="modal-body">
+                                <div class="form-row">
+                                    <div class="form-group col-md-12">
+                                        <input name="tituloPrincipal" type="text" class="form-control" id="inputAddress"
+                                            placeholder="Título principal">
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- ---------------------------------------------------- -->
+                            <!-- ↓↓ Botoes para cancelar ou alterar o titulo principal ↓↓ -->
+                            <div class="modal-footer">
+                                <button type="button" class="btn personalizado-2" data-dismiss="modal">Cancelar</button>
+                                <button type="submit" class="btn personalizado">Alterar</button>
+                            </div>
+                            <!-- --------------------------------------------------------- -->
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- Final do Modal Titulo principal ----------------------------------------- -->
+
+            <!-- Modal Titulo --------------------------------------------------- -->
+            <div class="modal fade" id="modalTitulo" tabindex="-1" role="dialog"
+                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <form action="{{ route('info.store') }}" method="POST">
+                            @csrf
+                            <div class="modal-header">
+                                <!-- ↓↓ Titulo do modal ↓↓ -->
+                                <p class="mx-auto">
+                                    Título atual: <strong style="font-size: 20px;" class="modal-title"
+                                        id="exampleModalLabel">{{ $info->titulo }}</strong>
+                                </p>
+                                <!-- --------------- -->
+                                <!-- ↓↓ Botao para fechar o modal ↓↓ -->
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <!-- ------------------------- -->
+                            </div>
+                            <!-- ↓↓ Input para alterar titulo principal ↓↓ --------------------- -->
+                            <div class="modal-body">
+                                <div class="form-row">
+                                    <div class="form-group col-md-12">
+                                        <input name="titulo" type="text" class="form-control" id="inputAddress"
+                                            placeholder="Título">
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- ---------------------------------------------------- -->
+                            <!-- ↓↓ Botoes para cancelar ou alterar o titulo principal ↓↓ -->
+                            <div class="modal-footer">
+                                <button type="button" class="btn personalizado-2" data-dismiss="modal">Cancelar</button>
+                                <button type="submit" class="btn personalizado">Alterar</button>
+                            </div>
+                            <!-- --------------------------------------------------------- -->
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- Final do Modal Titulo ----------------------------------------- -->
+            
+            <!-- Modal Subtitulo --------------------------------------------------- -->
+            <div class="modal fade" id="modalSubtitulo" tabindex="-1" role="dialog"
+                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <form action="{{ route('info.store') }}" method="POST">
+                            @csrf
+                            <div class="modal-header">
+                                <!-- ↓↓ Titulo do modal ↓↓ -->
+                                <p class="mx-auto">
+                                    Subtitulo atual: <strong style="font-size: 20px;" class="modal-title"
+                                        id="exampleModalLabel">{{ $info->subtitulo }}</strong>
+                                </p>
+                                <!-- --------------- -->
+                                <!-- ↓↓ Botao para fechar o modal ↓↓ -->
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <!-- ------------------------- -->
+                            </div>
+                            <!-- ↓↓ Input para alterar titulo principal ↓↓ --------------------- -->
+                            <div class="modal-body">
+                                <div class="form-row">
+                                    <div class="form-group col-md-12">
+                                        <input name="subtitulo" type="text" class="form-control" id="inputAddress"
+                                            placeholder="Subtitulo">
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- ---------------------------------------------------- -->
+                            <!-- ↓↓ Botoes para cancelar ou alterar o titulo principal ↓↓ -->
+                            <div class="modal-footer">
+                                <button type="button" class="btn personalizado-2" data-dismiss="modal">Cancelar</button>
+                                <button type="submit" class="btn personalizado">Alterar</button>
+                            </div>
+                            <!-- --------------------------------------------------------- -->
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- Final do Modal Subtitulo ----------------------------------------- -->
+            
+            <!-- Modal Titulo Introdução --------------------------------------------------- -->
+            <div class="modal fade" id="modalTitulointroducao" tabindex="-1" role="dialog"
+                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <form action="{{ route('info.store') }}" method="POST">
+                            @csrf
+                            <div class="modal-header">
+                                <!-- ↓↓ Titulo do modal ↓↓ -->
+                                <p class="mx-auto">
+                                    Titulo da introdução atual: <strong style="font-size: 20px;" class="modal-title"
+                                        id="exampleModalLabel">{{ $info->titulointroducao }}</strong>
+                                </p>
+                                <!-- --------------- -->
+                                <!-- ↓↓ Botao para fechar o modal ↓↓ -->
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <!-- ------------------------- -->
+                            </div>
+                            <!-- ↓↓ Input para alterar titulo principal ↓↓ --------------------- -->
+                            <div class="modal-body">
+                                <div class="form-row">
+                                    <div class="form-group col-md-12">
+                                        <input name="titulointroducao" type="text" class="form-control" id="inputAddress"
+                                            placeholder="Título da Introdução">
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- ---------------------------------------------------- -->
+                            <!-- ↓↓ Botoes para cancelar ou alterar o titulo principal ↓↓ -->
+                            <div class="modal-footer">
+                                <button type="button" class="btn personalizado-2" data-dismiss="modal">Cancelar</button>
+                                <button type="submit" class="btn personalizado">Alterar</button>
+                            </div>
+                            <!-- --------------------------------------------------------- -->
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- Final do Modal Subtitulo ----------------------------------------- -->
+
+            <!-- Modal Introdução --------------------------------------------------- -->
+            <div class="modal fade" id="modalIntroducao" tabindex="-1" role="dialog"
+                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <form action="{{ route('info.store') }}" method="POST">
+                            @csrf
+                            <div class="modal-header">
+                                <!-- ↓↓ Titulo do modal ↓↓ -->
+                                <p class="mx-auto">
+                                    Introdução atual: <strong style="font-size: 20px;" class="modal-title"
+                                        id="exampleModalLabel">{{ $info->introducao }}</strong>
+                                </p>
+                                <!-- --------------- -->
+                                <!-- ↓↓ Botao para fechar o modal ↓↓ -->
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <!-- ------------------------- -->
+                            </div>
+                            <!-- ↓↓ Input para alterar titulo principal ↓↓ --------------------- -->
+                            <div class="modal-body">
+                                <div class="form-row">
+                                    <div class="form-group col-md-12">
+                                        <input name="introducao" type="text" class="form-control" id="inputAddress"
+                                            placeholder="Introdução">
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- ---------------------------------------------------- -->
+                            <!-- ↓↓ Botoes para cancelar ou alterar o titulo principal ↓↓ -->
+                            <div class="modal-footer">
+                                <button type="button" class="btn personalizado-2" data-dismiss="modal">Cancelar</button>
+                                <button type="submit" class="btn personalizado">Alterar</button>
+                            </div>
+                            <!-- --------------------------------------------------------- -->
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- Final do Modal Subtitulo ----------------------------------------- -->
+
+            <!-- ------------------------------------------------------- -->
+
             <!-- open sidebar menu -->
             <a class="btn btn-primary btn-customized open-menu" href="#" role="button">
                 <i class="fas fa-align-left"></i> <span>Menu</span>
@@ -66,12 +277,32 @@
                 <div class="container">
                     <div class="row">
                         <div class="col col-md-10 offset-md-1 col-lg-8 offset-lg-2">
-                            <h1 class="wow fadeIn"><strong>{{ $info->tituloPrincipal }}</strong></h1>
+                            <h1 class="wow fadeIn">
+                                <strong>
+                                    <!-- ↓↓ Botao que acessa o modal para alterar titulo principal ↓↓ -->
+                                    <a data-toggle="modal" data-target="#modalTituloPrincipal">
+                                        {{ $info->tituloPrincipal }}
+                                    </a>
+                                    <!-- ------------------------------------------------------------ -->
+                                </strong>
+                            </h1>
                             <div class="description wow fadeInLeft">
                                 <p>
-                                    <strong>{{$info->titulo}}</strong>
+                                    <!-- ↓↓ Botao que acessa o modal para alterar titulo ↓↓ -->
+                                    <strong>
+                                        <a data-toggle="modal" data-target="#modalTitulo">
+                                            {{ $info->titulo }}
+                                        </a>
+                                    </strong>
+                                    <!-- -------------------------------------------------- -->
                                     <br>
-                                    <strong>{{$info->subtitulo}}</strong>
+                                    <!-- ↓↓ Botao que acessa o modal para alterar subtitulo ↓↓ -->
+                                    <strong>
+                                        <a data-toggle="modal" data-target="#modalSubtitulo">
+                                            {{ $info->subtitulo }}
+                                        </a>
+                                    </strong>
+                                    <!-- ----------------------------------------------------- -->
                                 </p>
                             </div>
                             <div class="buttons wow fadeInUp">
@@ -97,9 +328,15 @@
                     </div>
                     <div class="row">
                         <div class="col-8 section-2-box wow fadeInLeft">
-                            <h3>{{ $info->titulointroducao }}</h3>
+                            <h3>
+                                <a data-toggle="modal" data-target="#modalTitulointroducao">
+                                    {{ $info->titulointroducao }}
+                                </a>
+                            </h3>
                             <p class="medium-paragraph">
-                               {{ $info->introducao }}
+                                <a data-toggle="modal" data-target="#modalIntroducao">
+                                    {{ $info->introducao }}
+                                </a>
                             </p>
                         </div>
                         <div class="col-4 section-2-box wow fadeInUp">
@@ -255,7 +492,8 @@
             </div>
 
             <!-- Section 4 -->
-            <div class="section-4-container section-container section-container-image-bg background-image-2" id="section-4">
+            <div class="section-4-container section-container section-container-image-bg background-image-2"
+                id="section-4">
                 <div class="container">
                     <div class="row">
                         <div class="col section-4 section-description wow fadeInLeftBig">
@@ -327,10 +565,4 @@
 
     </div>
     <!-- End wrapper -->
-
-
-
-
-
-
 @endsection
