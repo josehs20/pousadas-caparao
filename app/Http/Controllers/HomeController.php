@@ -25,10 +25,8 @@ class HomeController extends Controller
     {
         if (auth()->user()->isAdmin()) {
             return  redirect(route('info.index'));
-
-         }
+        }
          
-        return view('home');
-        
+        return view('home');        
     }
 }

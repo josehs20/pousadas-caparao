@@ -3,14 +3,14 @@
      <div class="container">
          <div class="row">
              <div class="col section-6 section-description wow fadeIn">
-                 <h2>Contact Us</h2>
+                 <h2>Nosso Contato</h2>
                  <div class="divider-1 wow fadeInUp"><span></span></div>
-                 <p>Send us an email using the form below or follow us on our social media channels.</p>
+                 <p>Nos mande um email usando o formulário abaixo.</p>
              </div>
          </div>
          <div class="row">
              <div class="col-md-6 section-6-box wow fadeInUp">
-                 <h3>By eMail</h3>
+                 <h3>Por email</h3>
                  <div class="section-6-form">
                      <form role="form" action="assets/contact.php" method="post">
                          <div class="form-group">
@@ -19,22 +19,23 @@
                                  id="contact-email">
                          </div>
                          <div class="form-group">
-                             <label class="sr-only" for="contact-subject">Subject</label>
+                             <label class="sr-only" for="contact-subject">Assunto</label>
                              <input type="text" name="subject" placeholder="Subject..."
                                  class="contact-subject form-control" id="contact-subject">
                          </div>
                          <div class="form-group">
-                             <label class="sr-only" for="contact-message">Message</label>
+                             <label class="sr-only" for="contact-message">Mensagem</label>
                              <textarea name="message" placeholder="Message..." class="contact-message form-control"
                                  id="contact-message"></textarea>
                          </div>
-                         <button type="submit" class="btn btn-primary btn-customized"><i class="fas fa-paper-plane"></i>
-                             Send Message</button>
+                        <button type="submit" class="btn btn-primary btn-customized"><i class="fas fa-paper-plane"></i>
+                            Enviar mensagem
+                        </button>
                      </form>
                  </div>
              </div>
              <div class="col-md-5 offset-md-1 section-6-box wow fadeInDown">
-                 <h3>Follow us</h3>
+                 <h3>Nos siga nas redes sociais</h3>
                  <div class="section-6-social">
                      <a href="#"><i class="fab fa-facebook-f"></i></a>
                      <a href="#"><i class="fab fa-dribbble"></i></a>

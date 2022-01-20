@@ -826,6 +826,7 @@ url(/fonts/vendor/bootstrap-icons/bootstrap-icons.woff?38c4d2499557ae0379fd160e1
 .bi-house-door-fill::before { content: "\f422"; }
 .bi-house-door::before { content: "\f423"; }
 .bi-house-fill::before { content: "\f424"; }
+.bi-house-fill { color: #fff }
 .bi-house::before { content: "\f425"; }
 .bi-hr::before { content: "\f426"; }
 .bi-hurricane::before { content: "\f427"; }

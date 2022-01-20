@@ -3,10 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\InfoPrincipal;
 
 class PaginaPrincipalController extends Controller
 {
     public function paginaPrincipal(){
-        return view('welcome');
+
+        $info = InfoPrincipal::first();
+
+        return view('welcome', compact('info'));
     }
 }

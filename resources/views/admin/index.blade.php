@@ -52,6 +52,38 @@
 
         <!-- Content -->
         <div class="content">
+            <br><br><br>
+
+            <!-- Codigo para informar que está na pagina Admin -->
+            <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+                <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
+                    <path
+                        d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+                </symbol>
+            </svg>
+
+            <div class="alert alert-success d-flex align-items-center" role="alert">
+                <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:">
+                    <use xlink:href="#check-circle-fill" />
+                </svg>
+                <div>
+                    Você está logado na conta administrador.
+                </div>
+            </div>
+
+            <div class="alert alert-success" role="alert">
+                <h4 class="alert-heading"><strong>Vamos ao principal</strong></h4>
+                <p>
+                    Perceba que alguns textos estão sublinhados, são eles que podem ser alterados. <br>
+                    Para alterá-los basta clicar neles.
+                    Ao clicar irá abrir uma janela, basta informar o novo texto e clicar em alterar e o texto será alterado. 
+                </p>
+                <hr>
+                <p class="mb-0">
+                    Boa sorte nos negócios.
+                </p>
+            </div>
+            <!-- --------------------------------------------- -->
 
             <!-- ------------------- TODOS OS MODAIS ------------------- -->
 
@@ -98,8 +130,8 @@
             <!-- Final do Modal Titulo principal ----------------------------------------- -->
 
             <!-- Modal Titulo --------------------------------------------------- -->
-            <div class="modal fade" id="modalTitulo" tabindex="-1" role="dialog"
-                aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="modalTitulo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <form action="{{ route('info.store') }}" method="POST">
@@ -138,10 +170,10 @@
                 </div>
             </div>
             <!-- Final do Modal Titulo ----------------------------------------- -->
-            
+
             <!-- Modal Subtitulo --------------------------------------------------- -->
-            <div class="modal fade" id="modalSubtitulo" tabindex="-1" role="dialog"
-                aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="modalSubtitulo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <form action="{{ route('info.store') }}" method="POST">
@@ -180,7 +212,7 @@
                 </div>
             </div>
             <!-- Final do Modal Subtitulo ----------------------------------------- -->
-            
+
             <!-- Modal Titulo Introdução --------------------------------------------------- -->
             <div class="modal fade" id="modalTitulointroducao" tabindex="-1" role="dialog"
                 aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -224,8 +256,8 @@
             <!-- Final do Modal Subtitulo ----------------------------------------- -->
 
             <!-- Modal Introdução --------------------------------------------------- -->
-            <div class="modal fade" id="modalIntroducao" tabindex="-1" role="dialog"
-                aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="modalIntroducao" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <form action="{{ route('info.store') }}" method="POST">
@@ -306,11 +338,11 @@
                                 </p>
                             </div>
                             <div class="buttons wow fadeInUp">
-                                <a class="btn btn-primary btn-customized scroll-link" href="#section-1" role="button">
-                                    <i class="fas fa-book-open"></i> Learn More
+                                <a class="btn btn-primary btn-customized scroll-link" href="#section-2" role="button">
+                                    <i class="bi bi-info-circle"></i> Sobre nós
                                 </a>
-                                <a class="btn btn-primary btn-customized-2 scroll-link" href="#section-3" role="button">
-                                    <i class="fas fa-pencil-alt"></i> Our Projects
+                                <a class="btn btn-primary btn-customized-2 scroll-link" href="#section-5" role="button">
+                                    <i class="bi bi-house"></i> Nossas Pousadas
                                 </a>
                             </div>
                         </div>
@@ -346,150 +378,7 @@
                 </div>
             </div>
 
-            <!-- Section 1 -->
-            <div class="section-1-container section-container" id="section-1">
-                <div class="container">
-                    <div class="row">
-                        <div class="col section-1 section-description wow fadeIn">
-                            <h2>What We Do</h2>
-                            <div class="divider-1 wow fadeInUp"><span></span></div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-4 section-1-box wow fadeInUp">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <div class="section-1-box-icon">
-                                        <i class="fas fa-magic"></i>
-                                    </div>
-                                </div>
-                                <div class="col-md-8">
-                                    <h3>Branding</h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                        incididunt ut labore et.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 section-1-box wow fadeInDown">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <div class="section-1-box-icon">
-                                        <i class="fas fa-cog"></i>
-                                    </div>
-                                </div>
-                                <div class="col-md-8">
-                                    <h3>Web design</h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                        incididunt ut labore et.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 section-1-box wow fadeInUp">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <div class="section-1-box-icon">
-                                        <i class="fab fa-twitter"></i>
-                                    </div>
-                                </div>
-                                <div class="col-md-8">
-                                    <h3>Social media</h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                        incididunt ut labore et.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- End Section 1 -->
-
-            <!-- Section 3 -->
-            <div class="section-3-container section-container" id="section-3">
-                <div class="container">
-
-                    <div class="row">
-                        <div class="col section-3 section-description wow fadeIn">
-                            <h2>Our Projects</h2>
-                            <div class="divider-1 wow fadeInUp"><span></span></div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-6 section-3-box wow fadeInLeft">
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <div class="section-3-box-icon">
-                                        <i class="fas fa-paperclip"></i>
-                                    </div>
-                                </div>
-                                <div class="col-md-9">
-                                    <h3>Ut wisi enim ad minim</h3>
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                        incididunt ut labore et.
-                                        Ut wisi enim ad minim veniam, quis nostrud.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 section-3-box wow fadeInLeft">
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <div class="section-3-box-icon">
-                                        <i class="fas fa-pencil-alt"></i>
-                                    </div>
-                                </div>
-                                <div class="col-md-9">
-                                    <h3>Sed do eiusmod tempor</h3>
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                        incididunt ut labore et.
-                                        Ut wisi enim ad minim veniam, quis nostrud.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-6 section-3-box wow fadeInLeft">
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <div class="section-3-box-icon">
-                                        <i class="fas fa-cloud"></i>
-                                    </div>
-                                </div>
-                                <div class="col-md-9">
-                                    <h3>Quis nostrud exerci tat</h3>
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                        incididunt ut labore et.
-                                        Ut wisi enim ad minim veniam, quis nostrud.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 section-3-box wow fadeInLeft">
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <div class="section-3-box-icon">
-                                        <i class="fab fa-google"></i>
-                                    </div>
-                                </div>
-                                <div class="col-md-9">
-                                    <h3>Minim veniam quis nostrud</h3>
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                        incididunt ut labore et.
-                                        Ut wisi enim ad minim veniam, quis nostrud.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
+            @include('componentes.pousadas')
 
             <!-- Section 4 -->
             <div class="section-4-container section-container section-container-image-bg background-image-2"
@@ -497,64 +386,101 @@
                 <div class="container">
                     <div class="row">
                         <div class="col section-4 section-description wow fadeInLeftBig">
-                            <h2>We Think That...</h2>
+                            <h2>Achamos que ...</h2>
                             <p>
-                                Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl
-                                ut
-                                aliquip ex ea commodo consequat. Ut wisi enim ad minim veniam, quis nostrud.
+                                Você terá uma excelente acomodação e experiência em nossas pousadas.
                             </p>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col section-bottom-button wow fadeInUp">
                             <a class="btn btn-primary btn-customized-2 scroll-link" href="#section-6" role="button">
-                                <i class="fas fa-envelope"></i> Contact Us
+                                <i class="fas fa-envelope"></i> Contato
                             </a>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Section 5 -->
-            <div class="section-5-container section-container" id="section-5">
+            <!-- Section 3 -->
+            <div class="section-3-container section-container" id="section-3">
                 <div class="container">
+
                     <div class="row">
-                        <div class="col section-5 section-description wow fadeIn">
-                            <h2>Portfolio</h2>
+                        <div class="col section-3 section-description wow fadeIn">
+                            <h2>Comodidades</h2>
                             <div class="divider-1 wow fadeInUp"><span></span></div>
-                            <p>We have completed 486 projects since we started back in 2013. Check them out!</p>
                         </div>
                     </div>
+
                     <div class="row">
-                        <div class="col-md-4 section-5-box wow fadeInUp">
-                            <div class="section-5-box-image"><img src="assets/img/portfolio/1.jpg" alt="portfolio-1"></div>
-                            <h3><a href="#">Acme branding</a> <i class="fas fa-angle-right"></i></h3>
-                            <div class="section-5-box-date"><i class="far fa-calendar"></i> June 2019</div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                                labore et.</p>
+                        <div class="col-md-6 section-3-box wow fadeInLeft">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="section-3-box-icon">
+                                        <i class="bi bi-wifi"></i>
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    <h3>Wifi</h3>
+                                    <p>
+                                        Temos wifi disponivel.
+                                    </p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-md-4 section-5-box wow fadeInDown">
-                            <div class="section-5-box-image"><img src="assets/img/portfolio/2.jpg" alt="portfolio-2"></div>
-                            <h3><a href="#">Created 150 flyers</a> <i class="fas fa-angle-right"></i></h3>
-                            <div class="section-5-box-date"><i class="far fa-calendar"></i> February 2019</div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                                labore et.</p>
-                        </div>
-                        <div class="col-md-4 section-5-box wow fadeInUp">
-                            <div class="section-5-box-image"><img src="assets/img/portfolio/3.jpg" alt="portfolio-3"></div>
-                            <h3><a href="#">WordPress design</a> <i class="fas fa-angle-right"></i></h3>
-                            <div class="section-5-box-date"><i class="far fa-calendar"></i> November 2018</div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                                labore et.</p>
+                        <div class="col-md-6 section-3-box wow fadeInLeft">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="section-3-box-icon">
+                                        <i class="bi bi-archive"></i>
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    <h3>Frigobar.</h3>
+                                    <p>
+                                        Frigobar em todos os quartos.
+                                    </p>
+                                </div>
+                            </div>
                         </div>
                     </div>
+
                     <div class="row">
-                        <div class="col section-bottom-button wow fadeInUp">
-                            <a class="btn btn-primary btn-customized" href="#" role="button">
-                                <i class="fas fa-sync"></i> View All
-                            </a>
+                        <div class="col-md-6 section-3-box wow fadeInLeft">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="section-3-box-icon">
+                                        <i class="bi bi-door-open"></i>
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    <h3>Quartos</h3>
+                                    <p>
+                                        Cama de casal;<br>
+                                        Cama de solteiro;<br>
+                                        Duas camas;
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 section-3-box wow fadeInLeft">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="section-3-box-icon">
+                                        <i class="bi bi-hdd"></i>
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    <h3>Ar condicionado</h3>
+                                    <p>
+                                        Temos também ar condicionado, porém os quartos já são bem arejados e confortáveis.
+                                    </p>
+                                </div>
+                            </div>
                         </div>
                     </div>
+
                 </div>
             </div>
 
