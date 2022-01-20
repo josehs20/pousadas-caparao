@@ -43,6 +43,7 @@
 			            </div>
 			        </div>
 		        </div>
+		        <!-- end Top content -->
 		
 		        <!-- Section 1 -->
 		        <div class="section-1-container section-container" id="section-1">
@@ -96,6 +97,7 @@
 			            </div>
 			        </div>
 		        </div>
+				<!-- End Section 1 -->
 		
 		        <!-- Section 2 -->
 		        <div class="section-2-container section-container section-container-gray-bg" id="section-2">
