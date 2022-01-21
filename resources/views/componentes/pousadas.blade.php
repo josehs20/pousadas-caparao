@@ -13,7 +13,7 @@
             @foreach ($pousadas as $pousada)
                 <div class="col-md-4 section-5-box wow fadeInUp">
                     <div class="section-5-box-image">
-                        <img src="assets/img/portfolio/1.jpg" alt="portfolio-1">
+                        <img src="{{ $pousada['imagem'] }}" alt="portfolio-1">
                     </div>
                     <h3>
                         <a href="#">{{ $pousada['nome'] }}</a>
@@ -32,6 +32,14 @@
                 <a class="btn btn-primary btn-customized" href="#" role="button">
                     <i class="fas fa-sync"></i> Ver todas
                 </a>
+                
+                <!-- Obtendo a url atual e se for 
+                    url do admin eu mostrar botao de editar -->
+                @if ( Request::is('info') ) <!-- info é a rota que aparece na url exemplo: localhost:8000/info -->
+                    <a class="btn btn-primary btn-customized-2" href="#" role="button">
+                        <i class="fas fa-sync"></i> Editar
+                    </a>
+                @endif
             </div>
         </div>
     </div>

@@ -20,6 +20,7 @@ class CreatePousadasTable extends Migration
             $table->string('nome')->nullable();
             $table->string('descricao')->nullable();
             $table->decimal('diaria', 5, 2)->nullable();
+            $table->string('imagem')->nullable();
         });
     }
 

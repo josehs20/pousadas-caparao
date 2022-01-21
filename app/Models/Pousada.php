@@ -11,5 +11,6 @@ class Pousada extends Model
         'nome',
         'descricao',
         'diaria',
+        'imagem',
         ];
 }

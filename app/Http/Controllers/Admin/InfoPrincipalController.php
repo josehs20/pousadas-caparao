@@ -22,6 +22,11 @@ class InfoPrincipalController extends Controller
         return view('admin.index', compact('info', 'pousadas'));
     }
 
+    public function listarPousadas(){
+        // retornar view que vai listar todas as pousadas
+        // para o admin e para o usuario normal.
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -39,19 +44,24 @@ class InfoPrincipalController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+    {        
        $verifica =  InfoPrincipal::find(1);
-        if ($verifica) {                   
-            $verifica->update($request->all());
-        
+       if ($verifica) {                   
+           $verifica->update($request->all());        
         }else{
             $info = new InfoPrincipal($request->all());
             $info->save();
-
-         }
+        }
         
-         return redirect(route("info.index"));
-
+        $verificapousada =  Pousada::find(1);
+        if($verificapousada){            
+            $verificapousada->update($request->all());        
+        }else{
+            $pousada = new Pousada($request->all());
+            $pousada->save();
+        }
+        
+        return redirect(route("info.index"));
     }
 
     /**

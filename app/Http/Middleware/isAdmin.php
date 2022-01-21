@@ -17,11 +17,8 @@ class isAdmin
     public function handle(Request $request, Closure $next)
     {
         if (auth()->user() && auth()->user()->isAdmin()) {
-           
-            return $next($request);     
-    }
-
-    return redirect('/adminPousadas')->with('message', 'Sem premissão de acesso');
-
+            return $next($request);
+        }
+        return redirect('/')->with('message', 'Sem premissão de acesso');
     }
 }
