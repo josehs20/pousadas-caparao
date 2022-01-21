@@ -315,24 +315,21 @@ a.btn-customized-4.btn-customized-light.btn.btn-primary:not(:disabled):not(.disa
 .top-content .description a:hover,
 .top-content .description a:focus { color: #fff; color: rgba(255, 255, 255, 0.8); }
 
-
-/***** Section 1 *****/
-
-.section-1-box { padding-top: 30px; text-align: left; }
-
-.section-1-box .section-1-box-icon {
-	width: 80px; height: 80px; margin: 0 auto;
-	border: 1px solid #f35b3f;
-    font-size: 40px; color: #f35b3f; line-height: 78px; text-align: center;
-    border-radius: 50%;
-}
-
-.section-1-box h3 { margin-top: 0; padding: 0 0 10px 0; }
-
-
 /***** Section 2 *****/
 
-.section-2-box { margin-top: 30px; text-align: left; }
+.radar{
+	animation: radar 2s infinite;
+}
+@keyframes radar {
+	from{
+		box-shadow: 0 0 0 0 rgba(214, 173, 96, 0.9);
+	}
+	to{
+		box-shadow: 0 0 0 30px rgba(214, 173, 96, 0);
+	}
+}
+
+.section-2-box { margin-top: 30px; text-align: left; margin:0;}
 .section-2-box h3 { margin-top: 0; }
 .section-2-box-text .medium-paragraph { margin-top: 20px; margin-bottom: 20px; }
 .section-2-box img { border-radius: 6px; }
@@ -344,7 +341,7 @@ a.btn-customized-4.btn-customized-light.btn.btn-primary:not(:disabled):not(.disa
 
 .section-3-box .section-3-box-icon {
 	width: 60px; height: 60px; margin: 0 auto;
-	background: #f35b3f;
+	background: #D6AD60;
     font-size: 28px; color: #fff; line-height: 60px; text-align: center;
     border-radius: 50%;
 }

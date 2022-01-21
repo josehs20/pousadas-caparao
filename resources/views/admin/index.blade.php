@@ -1,45 +1,6 @@
 @extends('estruturaHTML')
 
 @section('conteudo')
-    <!-- Formulario -->
-    {{-- <form action="{{ route('info.store') }}" method="POST">
-        @csrf
-        <div class="form-row">
-            <div class="form-group">
-                <label for="inputAddress">Titulo principal</label>
-                <input name="tituloPrincipal" type="text" class="form-control" id="inputAddress"
-                    placeholder="pousadas Info">
-            </div>
-            <div class="form-group">
-                <label for="inputAddress">Titulo</label>
-                <input name="titulo" type="text" class="form-control" id="inputAddress" placeholder="pousadas Info">
-            </div>
-            <div class="form-group">
-                <label for="inputAddress">subTitulo</label>
-                <input name="subtitulo" type="text" class="form-control" id="inputAddress" placeholder="pousadas Info">
-            </div>
-            <div class="form-group col-md-6">
-                <label for="inputPassword4">introducaoImage</label>
-                <input name="introducaoImage" type="image" class="form-control" id="inputPassword4" placeholder="obre nos">
-            </div>
-        </div>
-        <br>
-        <div class="form-group">
-            <label for="inputAddress">introducao</label>
-            <input name="titulointroducao" type="text" class="form-control" id="inputAddress"
-                placeholder="imageItroducao">
-        </div>
-        <br>
-        <div class="form-group">
-            <label for="inputAddress"> sobreNos</label>
-            <input name="introducao" type="text" class="form-control" id="inputAddress" placeholder="pousada">
-        </div>
-
-        <button type="submit" class="btn btn-primary">Sign in</button>
-    </form> --}}
-    <!-- End Formulario -->
-
-    <!-- --------------------------------------------------- -->
 
     <!-- Wrapper -->
     <div class="wrapper">
@@ -359,7 +320,8 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-8 section-2-box wow fadeInLeft">
+                        <!-- Textos da introdução -->
+                        <div class="col-6 section-2-box wow fadeInLeft">
                             <h3>
                                 <a data-toggle="modal" data-target="#modalTitulointroducao">
                                     {{ $info->titulointroducao }}
@@ -371,7 +333,8 @@
                                 </a>
                             </p>
                         </div>
-                        <div class="col-4 section-2-box wow fadeInUp">
+                        <!-- Imagem da introdução -->
+                        <div class="col-6 section-2-box wow fadeInUp">
                             <img src="{{ asset('assets/images/pico-bandeira.jpg') }}" alt="about-us">
                         </div>
                     </div>
@@ -417,7 +380,7 @@
                         <div class="col-md-6 section-3-box wow fadeInLeft">
                             <div class="row">
                                 <div class="col-md-3">
-                                    <div class="section-3-box-icon">
+                                    <div class="section-3-box-icon radar">
                                         <i class="bi bi-wifi"></i>
                                     </div>
                                 </div>

@@ -30,7 +30,7 @@
         <div class="row">
             <div class="col section-bottom-button wow fadeInUp">
                 <a class="btn btn-primary btn-customized" href="#" role="button">
-                    <i class="fas fa-sync"></i> View All
+                    <i class="fas fa-sync"></i> Ver todas
                 </a>
             </div>
         </div>
