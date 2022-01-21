@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\InfoPrincipal;
+use App\Models\Pousada;
 use Laravel\Ui\Presets\React;
 
 class InfoPrincipalController extends Controller
@@ -17,7 +18,13 @@ class InfoPrincipalController extends Controller
     public function index(Request $request)
     {
         $info = InfoPrincipal::first();
-        return view('admin.index', compact('info'));
+        $pousadas = Pousada::take(3)->get()->toArray();
+        return view('admin.index', compact('info', 'pousadas'));
+    }
+
+    public function listarPousadas(){
+        // retornar view que vai listar todas as pousadas
+        // para o admin e para o usuario normal.
     }
 
     /**
@@ -37,19 +44,24 @@ class InfoPrincipalController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+    {        
        $verifica =  InfoPrincipal::find(1);
-        if ($verifica) {                   
-            $verifica->update($request->all());
-        
+       if ($verifica) {                   
+           $verifica->update($request->all());        
         }else{
             $info = new InfoPrincipal($request->all());
             $info->save();
-
-         }
+        }
         
-         return redirect(route("info.index"));
-
+        $verificapousada =  Pousada::find(1);
+        if($verificapousada){            
+            $verificapousada->update($request->all());        
+        }else{
+            $pousada = new Pousada($request->all());
+            $pousada->save();
+        }
+        
+        return redirect(route("info.index"));
     }
 
     /**

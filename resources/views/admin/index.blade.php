@@ -1,45 +1,6 @@
 @extends('estruturaHTML')
 
 @section('conteudo')
-    <!-- Formulario -->
-    {{-- <form action="{{ route('info.store') }}" method="POST">
-        @csrf
-        <div class="form-row">
-            <div class="form-group">
-                <label for="inputAddress">Titulo principal</label>
-                <input name="tituloPrincipal" type="text" class="form-control" id="inputAddress"
-                    placeholder="pousadas Info">
-            </div>
-            <div class="form-group">
-                <label for="inputAddress">Titulo</label>
-                <input name="titulo" type="text" class="form-control" id="inputAddress" placeholder="pousadas Info">
-            </div>
-            <div class="form-group">
-                <label for="inputAddress">subTitulo</label>
-                <input name="subtitulo" type="text" class="form-control" id="inputAddress" placeholder="pousadas Info">
-            </div>
-            <div class="form-group col-md-6">
-                <label for="inputPassword4">introducaoImage</label>
-                <input name="introducaoImage" type="image" class="form-control" id="inputPassword4" placeholder="obre nos">
-            </div>
-        </div>
-        <br>
-        <div class="form-group">
-            <label for="inputAddress">introducao</label>
-            <input name="titulointroducao" type="text" class="form-control" id="inputAddress"
-                placeholder="imageItroducao">
-        </div>
-        <br>
-        <div class="form-group">
-            <label for="inputAddress"> sobreNos</label>
-            <input name="introducao" type="text" class="form-control" id="inputAddress" placeholder="pousada">
-        </div>
-
-        <button type="submit" class="btn btn-primary">Sign in</button>
-    </form> --}}
-    <!-- End Formulario -->
-
-    <!-- --------------------------------------------------- -->
 
     <!-- Wrapper -->
     <div class="wrapper">
@@ -62,30 +23,59 @@
                 </symbol>
             </svg>
 
-            <div class="alert alert-success d-flex align-items-center" role="alert">
-                <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:">
-                    <use xlink:href="#check-circle-fill" />
-                </svg>
-                <div>
-                    Você está logado na conta administrador.
-                </div>
-            </div>
-
-            <div class="alert alert-success" role="alert">
-                <h4 class="alert-heading"><strong>Vamos ao principal</strong></h4>
-                <p>
-                    Perceba que alguns textos estão sublinhados, são eles que podem ser alterados. <br>
-                    Para alterá-los basta clicar neles.
-                    Ao clicar irá abrir uma janela, basta informar o novo texto e clicar em alterar e o texto será alterado. 
-                </p>
-                <hr>
-                <p class="mb-0">
-                    Boa sorte nos negócios.
-                </p>
-            </div>
             <!-- --------------------------------------------- -->
 
             <!-- ------------------- TODOS OS MODAIS ------------------- -->
+
+            <!-- Modal Informação de uso para admin  --------------------------------------------------- -->
+            <div class="modal fade" id="modalInfo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <form action="{{ route('info.store') }}" method="POST">
+                            @csrf
+                            <div class="modal-header">
+                                <!-- ↓↓ Titulo do modal ↓↓ -->
+                                <p class="mx-auto">
+                                    <strong style="font-size: 20px;" class="modal-title">
+                                        Informações
+                                    </strong>
+                                </p>
+                                <!-- --------------- -->
+                            </div>
+                            <!-- ↓↓ Texto com as informações ↓↓ --------------------- -->
+                            <div class="modal-body">
+                                <div class="form-row">
+                                    <div class="form-group col-md-12">
+                                        <div class="alert alert-success" role="alert">
+                                            <h4 class="alert-heading"><strong>Vamos ao principal</strong></h4>
+                                            <p>
+                                                Perceba que alguns textos estão sublinhados, são eles que podem ser
+                                                alterados. <br>
+                                                Para alterá-los basta clicar neles.
+                                                Ao clicar irá abrir uma janela, basta informar o novo texto e clicar em
+                                                alterar e o texto será alterado.
+                                            </p>
+                                            <hr>
+                                            <p class="mb-0">
+                                                Boa sorte nos negócios.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- ---------------------------------------------------- -->
+                            <!-- ↓↓ Botoes para cancelar ou alterar o titulo principal ↓↓ -->
+                            <div class="modal-footer">
+                                <button type="button" class="btn personalizado-2" data-dismiss="modal">Sair</button>
+                            </div>
+                            <!-- --------------------------------------------------------- -->
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- Final do Modal Informação de uso para admin ----------------------------------------- -->
+
 
             <!-- Modal Titulo Principal --------------------------------------------------- -->
             <div class="modal fade" id="modalTituloPrincipal" tabindex="-1" role="dialog"
@@ -101,11 +91,6 @@
                                         id="exampleModalLabel">{{ $info->tituloPrincipal }}</strong>
                                 </p>
                                 <!-- --------------- -->
-                                <!-- ↓↓ Botao para fechar o modal ↓↓ -->
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                                <!-- ------------------------- -->
                             </div>
                             <!-- ↓↓ Input para alterar titulo principal ↓↓ --------------------- -->
                             <div class="modal-body">
@@ -143,11 +128,6 @@
                                         id="exampleModalLabel">{{ $info->titulo }}</strong>
                                 </p>
                                 <!-- --------------- -->
-                                <!-- ↓↓ Botao para fechar o modal ↓↓ -->
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                                <!-- ------------------------- -->
                             </div>
                             <!-- ↓↓ Input para alterar titulo principal ↓↓ --------------------- -->
                             <div class="modal-body">
@@ -185,11 +165,6 @@
                                         id="exampleModalLabel">{{ $info->subtitulo }}</strong>
                                 </p>
                                 <!-- --------------- -->
-                                <!-- ↓↓ Botao para fechar o modal ↓↓ -->
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                                <!-- ------------------------- -->
                             </div>
                             <!-- ↓↓ Input para alterar titulo principal ↓↓ --------------------- -->
                             <div class="modal-body">
@@ -227,11 +202,6 @@
                                         id="exampleModalLabel">{{ $info->titulointroducao }}</strong>
                                 </p>
                                 <!-- --------------- -->
-                                <!-- ↓↓ Botao para fechar o modal ↓↓ -->
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                                <!-- ------------------------- -->
                             </div>
                             <!-- ↓↓ Input para alterar titulo principal ↓↓ --------------------- -->
                             <div class="modal-body">
@@ -269,11 +239,6 @@
                                         id="exampleModalLabel">{{ $info->introducao }}</strong>
                                 </p>
                                 <!-- --------------- -->
-                                <!-- ↓↓ Botao para fechar o modal ↓↓ -->
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                                <!-- ------------------------- -->
                             </div>
                             <!-- ↓↓ Input para alterar titulo principal ↓↓ --------------------- -->
                             <div class="modal-body">
@@ -299,10 +264,25 @@
 
             <!-- ------------------------------------------------------- -->
 
-            <!-- open sidebar menu -->
-            <a class="btn btn-primary btn-customized open-menu" href="#" role="button">
-                <i class="fas fa-align-left"></i> <span>Menu</span>
-            </a>
+            <!-- Botao de navbar, informação que esta no admin, botao de informações -->
+            <div class="open-menu-div">
+                <!-- open sidebar menu -->
+                <a class="btn btn-primary btn-customized open-menu" href="#" role="button">
+                    <i class="fas fa-align-left"></i> <span>Menu</span>
+                </a>
+                <div class="alert alert-success d-flex align-items-center open-menu-alert" role="alert">
+                    <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:">
+                        <use xlink:href="#check-circle-fill" />
+                    </svg>
+                    <div>
+                        Você está logado na conta administrador.
+                    </div>
+                </div>
+                <a class="btn btn-primary btn-customized-2 open-menu-r" data-toggle="modal" data-target="#modalInfo">
+                    <i class="bi bi-info-circle"></i> <span>Informações</span>
+                </a>
+            </div>
+            <!-- ---------------------------------------------------------------------- -->
 
             <!-- Top content -->
             <div class="top-content section-container background-image" id="top-content">
@@ -358,8 +338,9 @@
                         <div class="col section-2 section-description wow fadeIn">
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-8 section-2-box wow fadeInLeft">
+                    <div class="div-introducao">
+                        <!-- Textos da introdução -->
+                        <div class="section-2-box wow fadeInLeft">
                             <h3>
                                 <a data-toggle="modal" data-target="#modalTitulointroducao">
                                     {{ $info->titulointroducao }}
@@ -371,14 +352,15 @@
                                 </a>
                             </p>
                         </div>
-                        <div class="col-4 section-2-box wow fadeInUp">
+                        <!-- Imagem da introdução -->
+                        <div class="section-2-box wow fadeInUp">
                             <img src="{{ asset('assets/images/pico-bandeira.jpg') }}" alt="about-us">
                         </div>
                     </div>
                 </div>
             </div>
 
-            @include('componentes.pousadas')
+            @include('componentes.pousadas')            
 
             <!-- Section 4 -->
             <div class="section-4-container section-container section-container-image-bg background-image-2"
@@ -417,7 +399,7 @@
                         <div class="col-md-6 section-3-box wow fadeInLeft">
                             <div class="row">
                                 <div class="col-md-3">
-                                    <div class="section-3-box-icon">
+                                    <div class="section-3-box-icon radar">
                                         <i class="bi bi-wifi"></i>
                                     </div>
                                 </div>

@@ -51,14 +51,16 @@
                         <div class="col section-2 section-description wow fadeIn">
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-8 section-2-box wow fadeInLeft">
+                    <div class="div-introducao">
+                        <!-- Textos da introdução -->
+                        <div class="section-2-box wow fadeInLeft">
                             <h3>{{ $info->titulointroducao }}</h3>
                             <p class="medium-paragraph">
                                 {{ $info->introducao }}
                             </p>
                         </div>
-                        <div class="col-4 section-2-box wow fadeInUp">
+                        <!-- Imagem da introdução -->
+                        <div class="section-2-box wow fadeInUp">
                             <img src="{{ asset('assets/images/pico-bandeira.jpg') }}" alt="about-us">
                         </div>
                     </div>
@@ -103,7 +105,7 @@
                         <div class="col-md-6 section-3-box wow fadeInLeft">
                             <div class="row">
                                 <div class="col-md-3">
-                                    <div class="section-3-box-icon">
+                                    <div class="section-3-box-icon radar">
                                         <i class="bi bi-wifi"></i>
                                     </div>
                                 </div>
