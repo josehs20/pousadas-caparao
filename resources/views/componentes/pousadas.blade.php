@@ -8,25 +8,24 @@
                 <p>Lindas e aconchegantes pousadas. Confira! ↓</p>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-4 section-5-box wow fadeInUp">
-                <div class="section-5-box-image"><img src="assets/img/portfolio/1.jpg" alt="portfolio-1"></div>
-                <h3><a href="#">Acme branding</a> <i class="fas fa-angle-right"></i></h3>
-                <div class="section-5-box-date"><i class="far fa-calendar"></i> June 2019</div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et.</p>
-            </div>
-            <div class="col-md-4 section-5-box wow fadeInDown">
-                <div class="section-5-box-image"><img src="assets/img/portfolio/2.jpg" alt="portfolio-2"></div>
-                <h3><a href="#">Created 150 flyers</a> <i class="fas fa-angle-right"></i></h3>
-                <div class="section-5-box-date"><i class="far fa-calendar"></i> February 2019</div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et.</p>
-            </div>
-            <div class="col-md-4 section-5-box wow fadeInUp">
-                <div class="section-5-box-image"><img src="assets/img/portfolio/3.jpg" alt="portfolio-3"></div>
-                <h3><a href="#">WordPress design</a> <i class="fas fa-angle-right"></i></h3>
-                <div class="section-5-box-date"><i class="far fa-calendar"></i> November 2018</div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et.</p>
-            </div>
+        <div class="row alinhar-pousadas">
+            <!-- Listando as pousadas -->
+            @foreach ($pousadas as $pousada)
+                <div class="col-md-4 section-5-box wow fadeInUp">
+                    <div class="section-5-box-image">
+                        <img src="assets/img/portfolio/1.jpg" alt="portfolio-1">
+                    </div>
+                    <h3>
+                        <a href="#">{{ $pousada['nome'] }}</a>
+                        <i class="fas fa-angle-right"></i>
+                    </h3>
+                    <div class="section-5-box-date">
+                        Diária: <i>R$</i> {{ $pousada['diaria'] }}
+                    </div>
+                    <p>{{ $pousada['descricao'] }}</p>
+                </div>
+            @endforeach
+            <!-- --------------------- -->
         </div>
         <div class="row">
             <div class="col section-bottom-button wow fadeInUp">

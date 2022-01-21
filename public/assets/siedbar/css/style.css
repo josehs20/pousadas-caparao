@@ -281,7 +281,7 @@ a.btn-customized-4.btn-customized-light.btn.btn-primary:not(:disabled):not(.disa
 
 /***** General style, all sections *****/
 
-.section-container { margin: 0 auto; padding-bottom: 80px; background-color: #eee;}
+.section-container { margin: 0; padding-bottom: 80px; background-color: #eee;}
 
 .section-container-gray-bg { background: #f8f8f8; }
 
@@ -353,16 +353,27 @@ a.btn-customized-4.btn-customized-light.btn.btn-primary:not(:disabled):not(.disa
 
 
 /***** Section 5 *****/
+.alinhar-pousadas{
+	display: flex;
+	justify-content: center;
+}
 
-.section-5-box { padding-top: 30px; text-align: left; }
+.section-5-box { 
+	padding-top: 30px; 
+	text-align: left; 
+	max-width: 370px; 
+	margin: 5px; 
+	color: #fff; 
+	background-color: #122620;
+}
 
 .section-5-box-image { overflow: hidden; border-radius: 6px; }
 .section-5-box-image img { transition: all .8s; }
 .section-5-box-image:hover img { transform: scale(1.25); }
 
 .section-5-box h3 { margin-top: 30px; }
-.section-5-box h3 a { color: #555; border: 0; }
-.section-5-box h3 a:hover, .section-5-box h3 a:focus { color: #f35b3f; }
+.section-5-box h3 a { color: #fff; border: 0; }
+.section-5-box h3 a:hover, .section-5-box h3 a:focus { color: #D6AD60; font-weight: bold; }
 
 .section-5-box h3 i { padding-left: 10px; color: #ccc; transition: all .3s; }
 .section-5-box h3:hover i { padding-left: 15px; }

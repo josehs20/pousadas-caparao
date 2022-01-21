@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\InfoPrincipal;
+use App\Models\Pousada;
 use Laravel\Ui\Presets\React;
 
 class InfoPrincipalController extends Controller
@@ -17,7 +18,8 @@ class InfoPrincipalController extends Controller
     public function index(Request $request)
     {
         $info = InfoPrincipal::first();
-        return view('admin.index', compact('info'));
+        $pousadas = Pousada::take(3)->get()->toArray();
+        return view('admin.index', compact('info', 'pousadas'));
     }
 
     /**
