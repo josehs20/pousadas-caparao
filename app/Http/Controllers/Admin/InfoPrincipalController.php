@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\InfoPrincipal;
 use App\Models\Pousada;
+use Illuminate\Support\Facades\Storage;
 use Laravel\Ui\Presets\React;
 
 class InfoPrincipalController extends Controller
@@ -22,7 +23,8 @@ class InfoPrincipalController extends Controller
         return view('admin.index', compact('info', 'pousadas'));
     }
 
-    public function listarPousadas(){
+    public function listarPousadas()
+    {
         // retornar view que vai listar todas as pousadas
         // para o admin e para o usuario normal.
     }
@@ -44,23 +46,23 @@ class InfoPrincipalController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {        
-       $verifica =  InfoPrincipal::find(1);
-       if ($verifica) {                   
-           $verifica->update($request->all());        
-        }else{
+    {
+        $verifica =  InfoPrincipal::find(1);
+        if ($verifica) {
+            $verifica->update($request->all());
+        } else {
             $info = new InfoPrincipal($request->all());
             $info->save();
         }
-        
+
         $verificapousada =  Pousada::find(1);
-        if($verificapousada){            
-            $verificapousada->update($request->all());        
-        }else{
+        if ($verificapousada) {
+            $verificapousada->update($request->all());
+        } else {
             $pousada = new Pousada($request->all());
             $pousada->save();
         }
-        
+
         return redirect(route("info.index"));
     }
 
@@ -72,8 +74,6 @@ class InfoPrincipalController extends Controller
      */
     public function show($id)
     {
-        
-        
     }
 
     /**
@@ -112,9 +112,25 @@ class InfoPrincipalController extends Controller
 
     public function imgPousadas(Pousada $pousada)
     {
-      $pousadas = $pousada->all();
+        $pousadas = $pousada->all();
 
-      return view('admin.pousadas', compact('pousadas'));
+        return view('admin.pousadas', compact('pousadas'));
     }
+    public function uploadImg(Request $request)
+    {
+        if ($request->hasFile('image') && $request->file('image')->isValid()) {
 
+            $file = $request->image;
+            $name = uniqid(date('HisYmd'));
+            $extension = $request->image->extension();
+            $nameFile = "{$name}.{$extension}";
+            $upload = $request->image->storeAs('public/imgPousadas', $nameFile);
+           // Storage::disk('local')->put('public/imgPousadas', $upload);
+            if (!$upload) {
+                dd('fail');
+            } else {
+                return redirect(route('imgPousadas'));
+            }
+        }
+    }
 }

@@ -24,23 +24,21 @@
                     Diária: <i>R$</i> {{ $pousada['diaria'] }}
                 </div>
                 <p>{{ $pousada['descricao'] }}</p>
-                <a class="btn btn-primary btn-customized-2" href="#" role="button">
-                    <i class="fas fa-sync"></i> Editar
-                </a>
+                <form action="{{ route('uploadImg')}}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <input type="file" name="image" class="btn btn-primary btn-customized-2">
+                    <button type="submit"></button>
+
+                </form>
+             
             </div>
             @endforeach
             <!-- --------------------- -->
         </div>
         <div class="row">
-            <div class="col section-bottom-button wow fadeInUp">
-                <a class="btn btn-primary btn-customized" href="{{ route('imgPousadas')}}" role="button">
-                    <i class="fas fa-sync"></i> Ver todas
-                </a>
 
-                
-                <a class="btn btn-primary btn-customized-2" href="#" role="button">
-                    <i class="fas fa-sync"></i> Editar
-                </a>
+              
+             
 
             </div>
         </div>

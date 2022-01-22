@@ -20,4 +20,5 @@ Auth::routes();
 
 Route::resource('/info', App\Http\Controllers\Admin\InfoPrincipalController::class)->middleware("isAdmin");
 Route::get('/imgPousadas', [App\Http\Controllers\Admin\InfoPrincipalController::class, 'imgPousadas'])->middleware("isAdmin")->name('imgPousadas');
+Route::post('/imgPousadas', [App\Http\Controllers\Admin\InfoPrincipalController::class, 'uploadImg'])->middleware("isAdmin")->name('uploadImg');
 
