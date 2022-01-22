@@ -27,7 +27,7 @@
                 <form action="{{ route('uploadImg')}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <input type="file" name="image" class="btn btn-primary btn-customized-2">
-                    <button type="submit"></button>
+                    <button type="submit">Alterar</button>
 
                 </form>
              
