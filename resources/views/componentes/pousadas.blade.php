@@ -11,6 +11,7 @@
         <div class="row alinhar-pousadas">
             <!-- Listando as pousadas -->
             @foreach ($pousadas as $pousada)
+            
                 <div class="col-md-4 section-5-box wow fadeInUp">
                     <div class="section-5-box-image">
                         <img src="{{ $pousada['imagem'] }}" alt="portfolio-1">
@@ -29,7 +30,7 @@
         </div>
         <div class="row">
             <div class="col section-bottom-button wow fadeInUp">
-                <a class="btn btn-primary btn-customized" href="#" role="button">
+                <a class="btn btn-primary btn-customized" href="{{ route('imgPousadas')}}" role="button">
                     <i class="fas fa-sync"></i> Ver todas
                 </a>
                 

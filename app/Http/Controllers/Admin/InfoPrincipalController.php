@@ -109,4 +109,12 @@ class InfoPrincipalController extends Controller
     {
         //
     }
+
+    public function imgPousadas(Pousada $pousada)
+    {
+      $pousadas = $pousada->all();
+
+      return view('admin.pousadas', compact('pousadas'));
+    }
+
 }
