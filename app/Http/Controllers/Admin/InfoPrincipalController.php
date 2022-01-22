@@ -114,29 +114,37 @@ class InfoPrincipalController extends Controller
     {
         $pousadas = $pousada->all();
 
+        //dd(Storage::url($pousadas));
         return view('admin.pousadas', compact('pousadas'));
     }
 
-    public function uploadImg(Request $request)
+    public function uploadImg(Request $request, Pousada $pousada)
     {
         if ($request->hasFile('image') && $request->file('image')->isValid()) {
 
-            //cria nome aleatorio com referência de data
-            $name = uniqid(date('HisYmd'));
-
+            //pega nome da imagem
+            $name = $request->file('image')->getClientOriginalName();
+            //dd($name);
             //pega extenção
-            $extension = $request->image->extension();
+            //$extension = $request->image->extension();
 
             //cria nome para armazenar
-            $nameFile = "{$name}.{$extension}";
-            
-            //armazena no diretório com link apontando para pasta public
-            $upload = $request->image->storeAs('public/imgPousadas', $nameFile);
-           // Storage::disk('local')->put('public/imgPousadas', $upload);
-            if (!$upload) {
-                dd('fail');
+            // $nameFile = "{$name}.{$extension}";
+
+            //armazena na Storage com link apontando para pasta public
+            $upload = $request->image->storeAs('public/imgPousadas', $name);
+            // Storage::disk('local')->put('public/imgPousadas', $upload);
+            // dd($upload);
+
+            if ($pousada->where('imagem', "storage/imgPousadas/$name")->first()) {
+
+                //colocar msg que já existe
+                return redirect(route('imgPousadas'))->with('imagem já existe');
             } else {
-                return redirect(route('imgPousadas'));
+                $pousada = new Pousada();
+                $pousada->imagem = "storage/imgPousadas/$name";
+                $pousada->save();
+                return redirect(route('imgPousadas'))->with('Imagem adicionada com sucesso');
             }
         }
     }

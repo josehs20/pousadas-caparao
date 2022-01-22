@@ -10,6 +10,9 @@
         </div>
         <div class="row alinhar-pousadas">
             <!-- Listando as pousadas -->
+            <form action="{{ route('uploadImg')}}" method="POST" enctype="multipart/form-data">
+                @csrf
+                <div class="row" >
             @foreach ($pousadas as $pousada)
 
             <div class="col-md-4 section-5-box wow fadeInUp">
@@ -24,16 +27,19 @@
                     Diária: <i>R$</i> {{ $pousada['diaria'] }}
                 </div>
                 <p>{{ $pousada['descricao'] }}</p>
-                <form action="{{ route('uploadImg')}}" method="POST" enctype="multipart/form-data">
-                    @csrf
-                    <input type="file" name="image" class="btn btn-primary btn-customized-2">
-                    <button type="submit">Alterar</button>
+             
+                    {{-- <input type="file" name="image" class="btn btn-primary btn-customized-2">
+                    <button type="submit">Alterar</button> --}}
 
-                </form>
+               
              
             </div>
             @endforeach
-            <!-- --------------------- -->
+        </div>
+            <input type="file" name="image" class="btn btn-primary btn-customized-2">
+            <button type="submit">Adicionar</button>
+
+        </form>
         </div>
         <div class="row">
 
