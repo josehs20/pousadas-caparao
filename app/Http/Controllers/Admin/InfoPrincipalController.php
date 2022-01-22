@@ -116,14 +116,21 @@ class InfoPrincipalController extends Controller
 
         return view('admin.pousadas', compact('pousadas'));
     }
+
     public function uploadImg(Request $request)
     {
         if ($request->hasFile('image') && $request->file('image')->isValid()) {
 
-            $file = $request->image;
+            //cria nome aleatorio com referência de data
             $name = uniqid(date('HisYmd'));
+
+            //pega extenção
             $extension = $request->image->extension();
+
+            //cria nome para armazenar
             $nameFile = "{$name}.{$extension}";
+            
+            //armazena no diretório com link apontando para pasta public
             $upload = $request->image->storeAs('public/imgPousadas', $nameFile);
            // Storage::disk('local')->put('public/imgPousadas', $upload);
             if (!$upload) {
