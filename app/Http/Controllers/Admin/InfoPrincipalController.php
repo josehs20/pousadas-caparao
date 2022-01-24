@@ -20,6 +20,7 @@ class InfoPrincipalController extends Controller
     {
         $info = InfoPrincipal::first();
         $pousadas = Pousada::take(3)->get()->toArray();
+        
         return view('admin.index', compact('info', 'pousadas'));
     }
 
@@ -94,9 +95,9 @@ class InfoPrincipalController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $info)
     {
-        //
+        dd($info);
     }
 
     /**
