@@ -1,5 +1,9 @@
 <link rel="stylesheet" href="{{ asset('assets/sass/main.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/siedbar/css/style.css') }}">
 
+<a class="btn personalizado-2 btn-add" data-toggle="modal" data-target="#addpousada">
+    Adicionar pousadas
+</a>
 
 <!-- Modal Introdução --------------------------------------------------- -->
 <div class="modal fade" id="addpousada" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -17,8 +21,7 @@
                 <!-- --------------- -->
             </div>
             <!-- ↓↓ Input para alterar titulo principal ↓↓ --------------------- -->
-            <form class="row" action="{{ route('uploadImg') }}" method="POST"
-                enctype="multipart/form-data">
+            <form class="row" action="{{ route('uploadImg') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-body">
                     <div class="form-row">
@@ -29,7 +32,8 @@
                                     placeholder="Nome da pousada">
                             </div>
                             <div class="row">
-                                <input class="campos" type="number" step="any" name="diaria" required placeholder="Diaria">
+                                <input class="campos" type="number" step="any" name="diaria" required
+                                    placeholder="Diaria">
                                 <input class="descricao" type="text" name="descricao" required
                                     placeholder="Descrição">
                                 <input class="campos" type="file" name="image" required
@@ -42,7 +46,7 @@
                 <!-- ---------------------------------------------------- -->
                 <!-- ↓↓ Botoes para cancelar ou alterar o titulo principal ↓↓ -->
                 <div class="modal-footer">
-                    <button type="submit" class="btn personalizado">Alterar</button>
+                    <button type="submit" class="btn personalizado">Adicionar</button>
                 </div>
             </form>
             <!-- --------------------------------------------------------- -->
@@ -51,11 +55,6 @@
     </div>
 </div>
 <!-- Final do Modal Subtitulo ----------------------------------------- -->
-
-
-<a class="btn personalizado-2 btn-add" data-toggle="modal" data-target="#addpousada">
-    Adicionar pousadas
-</a>
 
 
 <!-- Section 5 -->
@@ -74,29 +73,44 @@
             <div class="row">
                 @foreach ($pousadas as $pousada)
 
-                    <div class="col-md-3 section-5-box wow fadeInUp">
-                        <div class="section-5-box-image">
-                            <img src="{{ $pousada['imagem'] }}" alt="portfolio-1">
+                    <div class="col-12 section-5-box wow fadeInUp">
+                        
+                        <div>
+                            <div class="section-5-box-image">
+                                <img src="{{ $pousada['imagem'] }}" alt="portfolio-1">
+                            </div>
+
+                            <h3>
+                                <a href="#">{{ $pousada['nome'] }}</a>
+                                <i class="fas fa-angle-right"></i>
+                            </h3>
+
+                            <div class="section-5-box-date">
+                                Diária: <i>R$</i> {{ $pousada['diaria'] }}
+                            </div>
+
+                            <p>{{ $pousada['descricao'] }}</p>
+
                         </div>
-                        <h3>
-                            <a href="#">{{ $pousada['nome'] }}</a>
-                            <i class="fas fa-angle-right"></i>
-                        </h3>
-                        <div class="section-5-box-date">
-                            Diária: <i>R$</i> {{ $pousada['diaria'] }}
-                        </div>
-                        <p>{{ $pousada['descricao'] }}</p>
+
                         <form action="{{ route('info.update', ['info' => $pousada['id']]) }}" method="POST"
                             enctype="multipart/form-data">
                             @method('PUT')
                             @csrf
-                            <input type="file" name="imageUpdate" required class="btn btn-primary btn-customized-2">
-                            <button type="submit">Alterar</button>
-                        </form>
 
-                        <a href="{{ route('info.destroy', ['info' => $pousada['id']]) }}"
-                            data-confirm="Deseja Realmente Retirar Esse Item Da Mesa?" data-method="DELETE"
-                            class="btn btn-primary col-12">Excluir</a>
+                            <!-- Input para escolher a foto  -->
+                            <input class="btn-image" type="file" name="imageUpdate" required
+                                class="form-control">
+
+                            <!-- Botoes de alterar e deletar pousada -->
+                            <div>
+                                <button class="btn personalizado-2 btn-alterar" type="submit">Alterar</button>
+
+                                <a href="{{ route('info.destroy', ['info' => $pousada['id']]) }}"
+                                    data-confirm="Deseja Realmente Retirar Esse Item Da Mesa?" data-method="DELETE"
+                                    class="btn btn-danger"> <i class="bi bi-trash"></i></a>
+                            </div>
+                        </form>
                     </div>
                 @endforeach
             </div>
