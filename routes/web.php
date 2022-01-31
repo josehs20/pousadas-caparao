@@ -17,6 +17,11 @@ Route::get('/', [\App\Http\Controllers\PaginaPrincipalController::class, 'pagina
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index']);
 Route::get('/listaPousadas', [App\Http\Controllers\PaginaPrincipalController::class, 'listarPousadas'])->name('todasPousadas');
 
+//Rota teste para pagina de uma unica pousada
+Route::get('/umaPousada', function(){
+    return view('umaPousada');
+})->name('umapousada');
+
 Auth::routes();
 
 Route::resource('/info', App\Http\Controllers\Admin\InfoPrincipalController::class)->middleware("isAdmin");

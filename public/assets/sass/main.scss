@@ -170,6 +170,36 @@ main{
 
 // ------------------- end main --------------------------
 
+// -------------------- uma pousada --------------------------
+.externo{
+    border: 5px solid red;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.div-img-pousada{
+    width: 49%;
+    height: 100%;
+    border: 3px solid black;
+}
+.div-conteudo-pousada{
+    width: 49%;
+    height: 100%;
+    border: 3px solid blue;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+// -------------------- end uma pousada --------------------------
+
+
+
+
 // ----------------------- rodape ----------------------------
 footer{
     display: flex;
