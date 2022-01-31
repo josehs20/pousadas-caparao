@@ -76,8 +76,10 @@ class InfoPrincipalController extends Controller
      */
     public function show($id)
     {
+       // $id = $id;
+       $this->destroy($id);
+       return redirect(route('imgPousadas'));
     }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -133,7 +135,7 @@ class InfoPrincipalController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Pousada::find($id)->delete();
     }
 
     public function imgPousadas(Pousada $pousada)
