@@ -25,10 +25,9 @@ class InfoPrincipalController extends Controller
         return view('admin.index', compact('info', 'pousadas'));
     }
 
-    public function listarPousadas()
-    {
-        // retornar view que vai listar todas as pousadas
-        // para o admin e para o usuario normal.
+    public function listarPousadas(Request $request){
+        $todasPousadasAdmin = Pousada::get()->toArray();
+        return view('componentes.todasPousadasAdmin', compact('todasPousadasAdmin'));
     }
 
     /**

@@ -15,4 +15,10 @@ class PaginaPrincipalController extends Controller
 
         return view('welcome', compact('info', 'pousadas'));
     }
+
+    public function listarPousadas(Request $request)
+    {
+        $todasPousadas = Pousada::get()->toArray();
+        return view('componentes.todasPousadas', compact('todasPousadas'));
+    }
 }
