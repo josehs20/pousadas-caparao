@@ -14,7 +14,7 @@
             <div class="row">
                 @foreach ($pousadas as $pousada)
 
-                <div class="col-md-4 section-5-box wow fadeInUp">
+                <div class="col-md-3 section-5-box wow fadeInUp">
                     <div class="section-5-box-image">
                         <img src="{{ $pousada['imagem'] }}" alt="portfolio-1">
                     </div>
@@ -26,17 +26,20 @@
                         Diária: <i>R$</i> {{ $pousada['diaria'] }}
                     </div>
                     <p>{{ $pousada['descricao'] }}</p>
-                    <form action="{{ route('info.update', [$pousada['id']])}}" method="PUT" enctype="multipart/form-data">
+                    <form action="{{ route('info.update', [ 'info' => $pousada['id']])}}" method="POST" enctype="multipart/form-data">
+                       @method('PUT')
                         @csrf
-                        <input type="file" name="imageUpdate" class="btn btn-primary btn-customized-2">
+                        <input type="file" name="imageUpdate" required class="btn btn-primary btn-customized-2">
                         <button type="submit">Alterar</button>
                     </form>
+                    
+                    <button type="submit">Excluir</button>
                 </div>
                 @endforeach
             </div>
             <form action="{{ route('uploadImg')}}" method="POST" enctype="multipart/form-data">
                 @csrf
-                <input type="file" name="image" class="btn btn-primary btn-customized-2">
+                <input type="file" name="image" required class="btn btn-primary btn-customized-2">
                 <button type="submit">Adicionar</button>
 
             </form>

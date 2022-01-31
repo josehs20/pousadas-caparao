@@ -30,14 +30,14 @@
         </div>
         <div class="row">
             <div class="col section-bottom-button wow fadeInUp">
-                <a class="btn btn-primary btn-customized" href="{{ route('imgPousadas')}}" role="button">
+                <a class="btn btn-primary btn-customized" role="button">
                     <i class="fas fa-sync"></i> Ver todas
                 </a>
                 
                 <!-- Obtendo a url atual e se for 
                     url do admin eu mostrar botao de editar -->
                 @if ( Request::is('info') ) <!-- info é a rota que aparece na url exemplo: localhost:8000/info -->
-                    <a class="btn btn-primary btn-customized-2" href="#" role="button">
+                    <a class="btn btn-primary btn-customized-2" href="{{ route('imgPousadas')}}" role="button">
                         <i class="fas fa-sync"></i> Editar
                     </a>
                 @endif

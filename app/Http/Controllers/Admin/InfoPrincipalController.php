@@ -8,6 +8,7 @@ use App\Models\InfoPrincipal;
 use App\Models\Pousada;
 use Illuminate\Support\Facades\Storage;
 use Laravel\Ui\Presets\React;
+use League\Flysystem\Adapter\Local;
 
 class InfoPrincipalController extends Controller
 {
@@ -20,7 +21,7 @@ class InfoPrincipalController extends Controller
     {
         $info = InfoPrincipal::first();
         $pousadas = Pousada::take(3)->get()->toArray();
-        
+
         return view('admin.index', compact('info', 'pousadas'));
     }
 
@@ -83,9 +84,9 @@ class InfoPrincipalController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($info)
     {
-        //
+        //dd($info);
     }
 
     /**
@@ -95,9 +96,33 @@ class InfoPrincipalController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $info)
+    public function update(Request $request, $info, Pousada $pousada)
     {
-        dd($info);
+
+        if ($request->hasFile('imageUpdate') && $request->file('imageUpdate')->isValid()) {
+
+            //pega nome da imagem          
+            $name = $request->file('imageUpdate')->getClientOriginalName();
+
+            //verifica se existe e deleta local
+            if (Storage::disk('local')->exists("public/imgPousadas/$name")) {
+
+                Storage::disk('local')->delete("public/imgPousadas/$name");
+               // dd($request->file('imageUpdate')->storeAs('public/imgPousadas', $name));
+
+                //armazena nova imagem local
+                $request->imageUpdate->storeAs('public/imgPousadas', $name);
+            } else {
+
+               $upload = $request->imageUpdate->storeAs('public/imgPousadas', $name);
+
+                // atualiza no banco
+                $pousada->find($info)->update([
+                    'imagem' => "storage/imgPousadas/$name",
+                ]);
+            }
+        }
+        return redirect(route('imgPousadas'));
     }
 
     /**
@@ -125,19 +150,11 @@ class InfoPrincipalController extends Controller
 
             //pega nome da imagem
             $name = $request->file('image')->getClientOriginalName();
-            //dd($name);
-            //pega extenção
-            //$extension = $request->image->extension();
 
-            //cria nome para armazenar
-            // $nameFile = "{$name}.{$extension}";
+            //armazena na pasta
+            $request->image->storeAs('public/imgPousadas', $name);
 
-            //armazena na Storage com link apontando para pasta public
-            $upload = $request->image->storeAs('public/imgPousadas', $name);
-            // Storage::disk('local')->put('public/imgPousadas', $upload);
-            // dd($upload);
-
-            if ($pousada->where('imagem', "storage/imgPousadas/$name")->first()) {
+            if (Storage::disk('local')->exists("public/imgPousadas/$name")) {
 
                 //colocar msg que já existe
                 return redirect(route('imgPousadas'))->with('imagem já existe');
