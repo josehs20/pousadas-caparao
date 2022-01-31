@@ -1,11 +1,15 @@
 <link rel="stylesheet" href="{{ asset('assets/sass/main.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/siedbar/css/style.css') }}">
 
-<a class="btn personalizado-2 btn-add" data-toggle="modal" data-target="#addpousada">
+<a href="{{route('info.index')}}" class="btn personalizado-2 btn-add-voltar">
+    Voltar
+</a>
+
+<a style="color:#fff;" class="btn personalizado-2 btn-add" data-toggle="modal" data-target="#addpousada">
     Adicionar pousadas
 </a>
 
-<!-- Modal Introdução --------------------------------------------------- -->
+<!-- Modal adionar pousada --------------------------------------------------- -->
 <div class="modal fade" id="addpousada" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -54,7 +58,7 @@
         </div>
     </div>
 </div>
-<!-- Final do Modal Subtitulo ----------------------------------------- -->
+<!-- Final do Modal adionar pousada ----------------------------------------- -->
 
 
 <!-- Section 5 -->
@@ -64,13 +68,13 @@
             <div class="col section-5 section-description wow fadeIn">
                 <h2>Nossas Pousadas</h2>
                 <div class="divider-1 wow fadeInUp"><span></span></div>
-                <p>Lindas e aconchegantes pousadas. Confira! ↓</p>
+                <p>Adicione, altere, edite ou exclua suas pousadas.</p>
             </div>
         </div>
-        <div class="row alinhar-pousadas">
+        <div class="row">
             <!-- Listando as pousadas -->
 
-            <div class="row">
+            <div class="row alinhar-pousadas">
                 @foreach ($pousadas as $pousada)
 
                     <div class="col-12 section-5-box wow fadeInUp">

@@ -170,6 +170,13 @@ main {
   z-index: 9999999;
 }
 
+.btn-add-voltar {
+  position: fixed;
+  left: 20px;
+  top: 20px;
+  z-index: 9999999;
+}
+
 .campos {
   margin: 10px 0;
   border-radius: 7px;

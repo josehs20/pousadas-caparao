@@ -15,6 +15,7 @@ use App\Http\Controllers\Admin\PousadasController;
 
 Route::get('/', [\App\Http\Controllers\PaginaPrincipalController::class, 'paginaPrincipal'])->name('pagina-principal');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index']);
+Route::get('/listaPousadas', [App\Http\Controllers\PaginaPrincipalController::class, 'listarPousadas'])->name('todasPousadas');
 
 Auth::routes();
 
@@ -22,6 +23,5 @@ Route::resource('/info', App\Http\Controllers\Admin\InfoPrincipalController::cla
 Route::get('/imgPousadas', [App\Http\Controllers\Admin\InfoPrincipalController::class, 'imgPousadas'])->middleware("isAdmin")->name('imgPousadas');
 Route::post('/imgPousadas', [App\Http\Controllers\Admin\InfoPrincipalController::class, 'uploadImg'])->middleware("isAdmin")->name('uploadImg');
 //Route::post('/imgPousadas{id_img}', [App\Http\Controllers\Admin\InfoPrincipalController::class, 'uploadImgUpdate'])->middleware("isAdmin")->name('uploadImgUpdate');
-
-
+Route::get('/listaPousadasAdmin', [App\Http\Controllers\Admin\InfoPrincipalController::class, 'listarPousadas'])->middleware("isAdmin")->name('todasPousadasAdmin');
 
