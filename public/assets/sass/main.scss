@@ -131,23 +131,24 @@ main{
     width: 100%;
 }
 
-.add{
-    display: flex;
-    justify-content: center;
+.btn-add{
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 9999999;
 }
 
-.add-pousada{
-    display: flex;
-    flex-direction: column;
-    input{
-        margin-bottom: 10px;
-        border-radius: 7px;
-        width: 500px;
-        padding: 2px 10px;
-    }
-    .descricao{
-        height: 150px;
-    }
+.campos{
+    margin: 10px 0;
+    border-radius: 7px;
+    padding: 5px 10px;
+}
+
+.descricao{
+    height: 150px;
+    margin: 10px 0;
+    border-radius: 7px;
+    padding: 5px 10px;
 }
 
 // ------------------- end main --------------------------
