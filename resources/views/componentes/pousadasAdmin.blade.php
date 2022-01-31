@@ -3,7 +3,7 @@
 <div class="add">
     <form class="add-pousada" action="{{ route('uploadImg') }}" method="POST" enctype="multipart/form-data">
         @csrf
-        <h2>Adicionar pousadas</h2>
+        <h2> Adicionar pousadas</h2>
         <input type="text" name="nome" required placeholder="Nome da pousada">
         <input type="number" name="diaria" required placeholder="Diaria">
         <input class="descricao" type="text" name="descricao" required placeholder="Descrição">
