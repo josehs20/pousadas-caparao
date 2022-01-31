@@ -32,8 +32,10 @@
                         <input type="file" name="imageUpdate" required class="btn btn-primary btn-customized-2">
                         <button type="submit">Alterar</button>
                     </form>
-                    
-                    <button type="submit">Excluir</button>
+                  
+                    <a href="{{route('info.destroy', ['info' => $pousada['id']])}}"
+                        data-confirm="Deseja Realmente Retirar Esse Item Da Mesa?"
+                        data-method="DELETE" class="btn btn-primary col-12">Excluir</a>
                 </div>
                 @endforeach
             </div>
