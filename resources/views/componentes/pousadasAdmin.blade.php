@@ -9,7 +9,7 @@
         <input class="descricao" type="text" name="descricao" required placeholder="Descrição">
         <input type="file" name="image" required class="btn btn-primary btn-customized-2">
         <button class="btn personalizado" type="submit">Adicionar</button>
-    </form>    
+    </form>
 </div>
 
 <br>
@@ -30,30 +30,35 @@
             <div class="row">
                 @foreach ($pousadas as $pousada)
 
-                    <div class="col-md-3 section-5-box wow fadeInUp">
-                        <div class="section-5-box-image">
-                            <img src="{{ $pousada['imagem'] }}" alt="portfolio-1">
-                        </div>
-                        <h3>
-                            <a href="#">{{ $pousada['nome'] }}</a>
-                            <i class="fas fa-angle-right"></i>
-                        </h3>
-                        <div class="section-5-box-date">
-                            Diária: <i>R$</i> {{ $pousada['diaria'] }}
-                        </div>
-                        <p>{{ $pousada['descricao'] }}</p>
-                        <form action="{{ route('info.update', ['info' => $pousada['id']]) }}" method="POST"
-                            enctype="multipart/form-data">
-                            @method('PUT')
-                            @csrf
-                            <input type="file" name="imageUpdate" required class="btn btn-primary btn-customized-2">
-                            <button type="submit">Alterar</button>
-                        </form>
-
-                        <button type="submit">Excluir</button>
+                <div class="col-md-3 section-5-box wow fadeInUp">
+                    <div class="section-5-box-image">
+                        <img src="{{ $pousada['imagem'] }}" alt="portfolio-1">
                     </div>
-                @endforeach
+                    <h3>
+                        <a href="#">{{ $pousada['nome'] }}</a>
+                        <i class="fas fa-angle-right"></i>
+                    </h3>
+                    <div class="section-5-box-date">
+                        Diária: <i>R$</i> {{ $pousada['diaria'] }}
+                    </div>
+                    <p>{{ $pousada['descricao'] }}</p>
+                    <form action="{{ route('info.update', [ 'info' => $pousada['id']])}}" method="POST"
+                        enctype="multipart/form-data">
+                        @method('PUT')
+                        @csrf
+                        <input type="file" name="imageUpdate" required class="btn btn-primary btn-customized-2">
+                        <button type="submit">Alterar</button>
+                    </form>
+
+                    <a href="{{route('info.destroy', ['info' => $pousada['id']])}}"
+                        data-confirm="Deseja Realmente Retirar Esse Item Da Mesa?" data-method="DELETE"
+                        class="btn btn-primary col-12">Excluir</a>
+                </div>
+
+                <button type="submit">Excluir</button>
             </div>
+            @endforeach
         </div>
     </div>
+</div>
 </div>
