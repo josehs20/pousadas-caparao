@@ -156,16 +156,16 @@ class InfoPrincipalController extends Controller
             //armazena na pasta
             $request->image->storeAs('public/imgPousadas', $name);
 
-            if (Storage::disk('local')->exists("public/imgPousadas/$name")) {
-
-                //colocar msg que já existe
-                return redirect(route('imgPousadas'))->with('imagem já existe');
-            } else {
+            
                 $pousada = new Pousada();
                 $pousada->imagem = "storage/imgPousadas/$name";
+                $pousada->nome = $request->nome;
+                $pousada->diaria = $request->diaria;
+                $pousada->descricao = $request->descricao;
                 $pousada->save();
+
                 return redirect(route('imgPousadas'))->with('Imagem adicionada com sucesso');
-            }
+            
         }
     }
 }
