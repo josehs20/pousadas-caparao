@@ -197,8 +197,13 @@ main{
 }
 // -------------------- end uma pousada --------------------------
 
-
-
+.carousel-fotos{
+    width: 600px;
+    height: 600px;
+    margin: 40px;
+    display: flex;
+    justify-content: center;
+}
 
 // ----------------------- rodape ----------------------------
 footer{
