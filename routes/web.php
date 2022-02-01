@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\PousadasController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,7 +25,7 @@ Auth::routes();
 
 Route::resource('/info', App\Http\Controllers\Admin\InfoPrincipalController::class)->middleware("isAdmin");
 Route::get('/imgPousadas', [App\Http\Controllers\Admin\InfoPrincipalController::class, 'imgPousadas'])->middleware("isAdmin")->name('imgPousadas');
-Route::post('/imgPousadas', [App\Http\Controllers\Admin\InfoPrincipalController::class, 'uploadImg'])->middleware("isAdmin")->name('uploadImg');
-//Route::post('/imgPousadas{id_img}', [App\Http\Controllers\Admin\InfoPrincipalController::class, 'uploadImgUpdate'])->middleware("isAdmin")->name('uploadImgUpdate');
+Route::post('/imgPousadas/{pousada_reg_id}', [App\Http\Controllers\Admin\InfoPrincipalController::class, 'uploadImg'])->middleware("isAdmin")->name('uploadImg');
+Route::post('/pousadaReg', [App\Http\Controllers\Admin\InfoPrincipalController::class, 'pousadaReg'])->middleware("isAdmin")->name('pousadaReg');
+Route::get('/listaUmaPousada/{pousada_reg_id}', [App\Http\Controllers\Admin\InfoPrincipalController::class, 'listaUmaPousada'])->middleware("isAdmin")->name('listaUmaPousada');
 Route::get('/listaPousadasAdmin', [App\Http\Controllers\Admin\InfoPrincipalController::class, 'listarPousadas'])->middleware("isAdmin")->name('todasPousadasAdmin');
-

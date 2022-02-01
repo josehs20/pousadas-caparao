@@ -10,22 +10,28 @@
         </div>
         <div class="row alinhar-pousadas">
             <!-- Listando as pousadas -->
-            @foreach ($pousadas as $pousada)
+            @if (!sizeof($pousada))
+            <div class="alert alert-primary" role="alert">
+                nenhuma imagem por enquanto
+            </div>
+            @else
+            @foreach ($pousada as $p)
             
-                <div class="col-md-4 section-5-box wow fadeInUp">
-                    <div class="section-5-box-image">
-                        <img src="{{ $pousada['imagem'] }}" alt="portfolio-1">
-                    </div>
-                    <h3>
-                        <a href="#">{{ $pousada['nome'] }}</a>
-                        <i class="fas fa-angle-right"></i>
-                    </h3>
-                    <div class="section-5-box-date">
-                        Diária: <i>R$</i> {{ $pousada['diaria'] }}
-                    </div>
-                    <p>{{ $pousada['descricao'] }}</p>
+            <div class="col-md-4 section-5-box wow fadeInUp">
+                <div class="section-5-box-image">
+                    <img src="{{ $p['imagem'] }}" alt="portfolio-1">
                 </div>
-            @endforeach
+                <h3>
+                    <a href="#">{{ $p['nome'] }}</a>
+                    <i class="fas fa-angle-right"></i>
+                </h3>
+                <div class="section-5-box-date">
+                    Diária: <i>R$</i> {{ $p['diaria'] }}
+                </div>
+                <p>{{ $p['descricao'] }}</p>
+            </div>
+        @endforeach
+            @endif
             <!-- --------------------- -->
         </div>
         <div class="row">

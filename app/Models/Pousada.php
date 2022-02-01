@@ -12,5 +12,11 @@ class Pousada extends Model
         'descricao',
         'diaria',
         'imagem',
+        'pousada_reg_id',
         ];
+
+        public function pousadaReg() {
+            return $this->belongsTo('App\Models\PousadaReg');
+        }
+
 }

@@ -30,6 +30,7 @@
                     </h3>
                     <div class="section-5-box-date">
                         Diária: <i>R$</i> {{ $pousada['diaria'] }}
+                        
                     </div>
                     <p>{{ $pousada['descricao'] }}</p>
                 </div>

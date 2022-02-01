@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\InfoPrincipal;
 use App\Models\Pousada;
+use App\Models\PousadaReg;
 use Illuminate\Support\Facades\Storage;
 use Laravel\Ui\Presets\React;
 use League\Flysystem\Adapter\Local;
@@ -20,12 +21,19 @@ class InfoPrincipalController extends Controller
     public function index(Request $request)
     {
         $info = InfoPrincipal::first();
-        $pousadas = Pousada::take(3)->get()->toArray();
+        $pousadas = PousadaReg::all();
+        $pousada = [];
+        foreach ($pousadas as $value) {
+            if (Pousada::where('pousada_reg_id', $value->id)->first()) {
+                $pousada[] = Pousada::with('pousadaReg')->where('pousada_reg_id', $value->id)->first();
+            }
+        }
 
-        return view('admin.index', compact('info', 'pousadas'));
+        return view('admin.index', compact('info', 'pousada'));
     }
 
-    public function listarPousadas(Request $request){
+    public function listarPousadas(Request $request)
+    {
         $todasPousadasAdmin = Pousada::get()->toArray();
         return view('componentes.todasPousadasAdmin', compact('todasPousadasAdmin'));
     }
@@ -75,9 +83,9 @@ class InfoPrincipalController extends Controller
      */
     public function show($id)
     {
-       // $id = $id;
-       $this->destroy($id);
-       return redirect(route('imgPousadas'));
+        // $id = $id;
+        $this->destroy($id);
+        return redirect(route('imgPousadas'));
     }
     /**
      * Show the form for editing the specified resource.
@@ -100,28 +108,23 @@ class InfoPrincipalController extends Controller
     public function update(Request $request, $info, Pousada $pousada)
     {
 
-        if ($request->hasFile('imageUpdate') && $request->file('imageUpdate')->isValid()) {
+        if ($request->hasFile('imageUpdate')) {
 
             //pega nome da imagem          
             $name = $request->file('imageUpdate')->getClientOriginalName();
 
+            $del = $pousada->find($info);
             //verifica se existe e deleta local
-            if (Storage::disk('local')->exists("public/imgPousadas/$name")) {
-
+            if (Storage::url("storage/imgPousadas/$name")) {
                 Storage::disk('local')->delete("public/imgPousadas/$name");
-               // dd($request->file('imageUpdate')->storeAs('public/imgPousadas', $name));
-
-                //armazena nova imagem local
-                $request->imageUpdate->storeAs('public/imgPousadas', $name);
-            } else {
-
-               $upload = $request->imageUpdate->storeAs('public/imgPousadas', $name);
-
-                // atualiza no banco
-                $pousada->find($info)->update([
-                    'imagem' => "storage/imgPousadas/$name",
-                ]);
             }
+
+            $upload = $request->imageUpdate->storeAs('public/imgPousadas', $name);
+
+            // atualiza no banco
+            $pousada->find($info)->update([
+                'imagem' => "storage/imgPousadas/$name",
+            ]);
         }
         return redirect(route('imgPousadas'));
     }
@@ -137,15 +140,20 @@ class InfoPrincipalController extends Controller
         Pousada::find($id)->delete();
     }
 
-    public function imgPousadas(Pousada $pousada)
+    public function imgPousadas(PousadaReg $pousadaReg)
     {
-        $pousadas = $pousada->all();
-
+        $pousadas = $pousadaReg->all();
+        $pousada = [];
+        foreach ($pousadas as $value) {
+            if (Pousada::where('pousada_reg_id', $value->id)->first()) {
+                $pousada[] = Pousada::with('pousadaReg')->where('pousada_reg_id', $value->id)->first();
+            }
+        }
         //dd(Storage::url($pousadas));
-        return view('admin.pousadas', compact('pousadas'));
+        return view('admin.pousadas', compact('pousada'));
     }
 
-    public function uploadImg(Request $request, Pousada $pousada)
+    public function uploadImg(Request $request, Pousada $pousada, $pousada_reg_id)
     {
         if ($request->hasFile('image') && $request->file('image')->isValid()) {
 
@@ -155,16 +163,40 @@ class InfoPrincipalController extends Controller
             //armazena na pasta
             $request->image->storeAs('public/imgPousadas', $name);
 
-            
-                $pousada = new Pousada();
-                $pousada->imagem = "storage/imgPousadas/$name";
-                $pousada->nome = $request->nome;
-                $pousada->diaria = $request->diaria;
-                $pousada->descricao = $request->descricao;
-                $pousada->save();
+            //dd($pousada_reg_id);
+            $pousada = new Pousada();
+            $pousada->imagem = "storage/imgPousadas/$name";
+            $pousada->nome = $request->nome;
+            $pousada->diaria = $request->diaria;
+            $pousada->descricao = $request->descricao;
+            $pousada->pousada_reg_id = $pousada_reg_id;
+            $pousada->save();
 
-                return redirect(route('imgPousadas'))->with('Imagem adicionada com sucesso');
-            
+            return redirect(route('listaUmaPousada', ['pousada_reg_id' => $pousada_reg_id]))->with('Imagem adicionada com sucesso');
         }
+    }
+
+    public function pousadaReg(Request $request)
+    {
+        // dd($request->all());
+        $reg = new PousadaReg();
+        $reg->nome = $request->nome;
+        $reg->cidade = $request->cidade;
+        $reg->localizacao = $request->localizacao ? $request->localizacao : null;
+        $reg->save();
+
+
+        //função global para upload de Imagem  
+        //  dd($request->file('image')->isValid());   
+        upImg($request, $reg);
+
+        return redirect(route('imgPousadas'))->with('pousada criada com sucesso');
+    }
+
+    public function listaUmaPousada($pousada_reg_id)
+    {
+        $pousadaImgs = Pousada::with('pousadaReg')->where('pousada_reg_id', $pousada_reg_id)->get();
+        // dd($pousadaImgs);
+        return view('admin.umaPousadaAdmin', compact('pousadaImgs'));
     }
 }
