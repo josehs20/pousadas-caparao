@@ -2,6 +2,10 @@
 
 @section('conteudo')
 
+    <a href="{{route('info.index')}}" class="btn personalizado-2 btn-add-voltar">
+        Página principal
+    </a>
+
     <a class="btn personalizado-2 btn-add-foto" data-toggle="modal" data-target="#addpousada">
         Adicionar fotos
     </a>
@@ -9,25 +13,9 @@
     <div class="externo">
         <div class="div-img-pousada">
                 <!-- Listando as pousadas -->
-                <div class="row">
-                    <div class="div-fotos">
-                        @foreach ($pousadaImgs as $p)
-                            <form action="{{route('listaUmaPousada', ['pousada_reg_id' => $p->pousadaReg->id])}}" method="get">
-                                
-                                <button type="submit">
-                                    <img src="{{ Storage::url(substr($p['imagem'], 8)) }}">
-                                    <input name="id" type="hidden" value="{{$p->id}}">
-                                </button>            
-                            </form>
-                        @endforeach
-                    </div>
-                </div>
-
                 <div class="row alinhar-pousadas">
-                    <div class="afoto">
-                        
+                    <div class="afoto">                        
                         <img src="{{ Storage::url(substr($idFoto['imagem'], 8)) }}">
-                        
                     </div>
                     @foreach ($pousadaImgs as $p)
                         {{-- Adiciona novas imagens e desc pousadas modal --}}
@@ -72,14 +60,28 @@
                         </div>
                     @endforeach
                 </div>
+                <div class="row alinhar-pousadas">
+                    <div class="div-fotos">
+                        @foreach ($pousadaImgs as $p)
+                            <form action="{{route('listaUmaPousada', ['pousada_reg_id' => $p->pousadaReg->id])}}" method="get">
+                                <button type="submit" class="btn-fotos">
+                                    <img src="{{ Storage::url(substr($p['imagem'], 8)) }}">
+                                    <input name="id" type="hidden" value="{{$p->id}}">
+                                </button>            
+                            </form>
+                        @endforeach
+                    </div>
+                </div>
         </div>
         <div class="div-conteudo-pousada">
-            <div>
-                <h1>{{ $p['nome'] }}</h1>
-                <p>{{ $p['diaria'] }}</p>
+            @foreach ($pousadaImgs as $p)
+                <div>
+                    <h1>{{ $p['nome'] }}</h1>
+                    <p>{{ $p['diaria'] }}</p>
 
-            </div>
-            <h3>{{ $p['descricao'] }}</h3>
+                </div>
+                <h3>{{ $p['descricao'] }}</h3>
+            @endforeach
         </div>
     </div>
 
