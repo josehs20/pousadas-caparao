@@ -193,10 +193,22 @@ class InfoPrincipalController extends Controller
         return redirect(route('imgPousadas'))->with('pousada criada com sucesso');
     }
 
-    public function listaUmaPousada($pousada_reg_id)
+    public function listaUmaPousada($pousada_reg_id, Request $request )
     {
         $pousadaImgs = Pousada::with('pousadaReg')->where('pousada_reg_id', $pousada_reg_id)->get();
+        $this->listaUmaFoto($request, $pousadaImgs);
         // dd($pousadaImgs);
-        return view('admin.umaPousadaAdmin', compact('pousadaImgs'));
+        //dd($request->all());
+        // return view('admin.umaPousadaAdmin', compact('pousadaImgs'));
     }
+
+    public function listaUmaFoto($request, $pousadaImgs){
+
+        $idFoto = $pousadaImgs->find($request->id) ? $pousadaImgs->find($request->id) : $pousadaImgs->first();
+    
+        // dd($idFoto);
+        return view('admin.umaPousadaAdmin', compact('pousadaImgs','idFoto'));
+    }
+
+    
 }
