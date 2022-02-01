@@ -145,8 +145,6 @@
             @else
             <div class="row alinhar-pousadas">
                 @foreach ($pousada as $p)
-
-             
                 
 
                 <div class="col-12 section-5-box wow fadeInUp">
