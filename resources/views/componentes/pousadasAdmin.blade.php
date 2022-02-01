@@ -5,11 +5,8 @@
     Voltar
 </a>
 
-<a style="color:#fff;" class="btn personalizado-2 btn-add" data-toggle="modal" data-target="#addpousada">
-    Adicionar pousadas
-</a>
-<a style="" class="btn btn-primary" data-toggle="modal" data-target="#registra">
-    registrar Nova Pousada
+<a style="color: #fff;" class="btn personalizado-2 btn-add" data-toggle="modal" data-target="#registra">
+    Adicionar Pousadas
 </a>
 
 {{-- Modal Registro de Pousada --}}
@@ -158,7 +155,7 @@
                         </div>
 
                         <h3>
-                            <a href="#">{{ $p['nome'] }}</a>
+                            <a href="{{ route('listaUmaPousada', ['pousada_reg_id' => $p['pousada_reg_id']]) }}">{{ $p['nome'] }}</a>
                             <i class="fas fa-angle-right"></i>
                         </h3>
 

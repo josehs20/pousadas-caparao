@@ -22,7 +22,11 @@
                     <img src="{{ $p['imagem'] }}" alt="portfolio-1">
                 </div>
                 <h3>
-                    <a href="{{ route('listaUmaPousadaUsuario', ['pousada_reg_id' => $p['pousada_reg_id']]) }}">{{ $p['nome'] }}</a>
+                    @if ( Request::is('info') )
+                        <a href="{{ route('listaUmaPousada', ['pousada_reg_id' => $p['pousada_reg_id']]) }}">{{ $p['nome'] }}</a> 
+                    @else
+                        <a href="{{ route('listaUmaPousadaUsuario', ['pousada_reg_id' => $p['pousada_reg_id']]) }}">{{ $p['nome'] }}</a>
+                    @endif
                     <i class="fas fa-angle-right"></i>
                 </h3>
                 <div class="section-5-box-date">
