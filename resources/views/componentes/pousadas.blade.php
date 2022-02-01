@@ -22,7 +22,7 @@
                     <img src="{{ $p['imagem'] }}" alt="portfolio-1">
                 </div>
                 <h3>
-                    <a href="#">{{ $p['nome'] }}</a>
+                    <a href="{{ route('listaUmaPousadaUsuario', ['pousada_reg_id' => $p['pousada_reg_id']]) }}">{{ $p['nome'] }}</a>
                     <i class="fas fa-angle-right"></i>
                 </h3>
                 <div class="section-5-box-date">
