@@ -12,10 +12,11 @@
                 <div class="row">
                     <div class="div-fotos">
                         @foreach ($pousadaImgs as $p)
-                            <form action="{{route('listaUmaPousada', ['pousada_reg_id' => $p->id])}}" method="get">
-                                <input name="idFoto" type="hidden" value="{{$p->id}}">
+                            <form action="{{route('listaUmaPousada', ['pousada_reg_id' => $p->pousadaReg->id])}}" method="get">
+                                
                                 <button type="submit">
                                     <img src="{{ Storage::url(substr($p['imagem'], 8)) }}">
+                                    <input name="id" type="hidden" value="{{$p->id}}">
                                 </button>            
                             </form>
                         @endforeach
