@@ -9,15 +9,20 @@
     <a class="btn personalizado-2 btn-add-foto" data-toggle="modal" data-target="#addpousada">
         Adicionar fotos
     </a>
-
     <div class="externo">
         <div class="div-img-pousada">
                 <!-- Listando as pousadas -->
                 <div class="row alinhar-pousadas">
                     <div class="afoto">                        
                         <img src="{{ Storage::url(substr($idFoto['imagem'], 8)) }}">
+                        <a href="{{ route('info.destroy', ['info' => $idFoto['id']]) }}"
+                            data-confirm="Deseja Realmente Retirar Esse Item Da Mesa?" data-method="DELETE"
+                            class="btn btn-danger"> <i class="bi bi-trash"></i></a>
+                        
                     </div>
+                   
                     @foreach ($pousadaImgs as $p)
+                   
                         {{-- Adiciona novas imagens e desc pousadas modal --}}
                         <div class="modal fade" id="addpousada" tabindex="-1" role="dialog"
                             aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -63,7 +68,7 @@
                 <div class="row alinhar-pousadas">
                     <div class="div-fotos">
                         @foreach ($pousadaImgs as $p)
-                            <form action="{{route('listaUmaPousada', ['pousada_reg_id' => $p->pousadaReg->id])}}" method="get">
+                            <form action="{{route('listaUmaPousada', $p->pousadaReg->id ? ['pousada_reg_id' => $p->pousadaReg->id] : null)}}" method="get">
                                 <button type="submit" class="btn-fotos">
                                     <img src="{{ Storage::url(substr($p['imagem'], 8)) }}">
                                     <input name="id" type="hidden" value="{{$p->id}}">

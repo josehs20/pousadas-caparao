@@ -135,13 +135,13 @@
             <!-- Listando as pousadas -->
             
 
-            @if (!sizeof($pousada))
+            @if (sizeof($pousadas) == 0)
             <div class="alert alert-primary" role="alert">
                 nenhuma imagem por enquanto
             </div>
             @else
             <div class="row alinhar-pousadas">
-                @foreach ($pousada as $p)
+                @foreach ($pousadas as $p)
                 
 
                 <div class="col-12 section-5-box wow fadeInUp">
@@ -155,7 +155,7 @@
                         </div>
 
                         <h3>
-                            <a href="{{ route('listaUmaPousada', ['pousada_reg_id' => $p['pousada_reg_id']]) }}">{{ $p['nome'] }}</a>
+                            <a href="{{ route('listaUmaPousada', ['pousada_reg_id' => $p['pousada_reg_id']]) }}">{{ $p->pousadaReg['nome'] }}</a>
                             <i class="fas fa-angle-right"></i>
                         </h3>
 

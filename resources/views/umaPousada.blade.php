@@ -61,7 +61,7 @@
                 <div class="row alinhar-pousadas">
                     <div class="div-fotos">
                         @foreach ($pousadaImgs as $p)
-                            <form action="{{route('listaUmaPousadaUsuario', ['pousada_reg_id' => $p->pousadaReg->id])}}" method="get">                                
+                            <form action="{{route('listaUmaPousadaUsuario', $p->pousadaReg->id ? ['pousada_reg_id' => $p->pousadaReg->id] : null )}}" method="get">                                
                                 <button type="submit" class="btn-fotos">
                                     <img src="{{ Storage::url(substr($p['imagem'], 8)) }}">
                                     <input name="id" type="hidden" value="{{$p->id}}">
