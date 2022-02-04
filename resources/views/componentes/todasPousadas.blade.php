@@ -51,13 +51,14 @@
             
                                         <div class="row">
                                             <input class="campos" type="text" name="nome" required placeholder="Nome da pousada">
+                                            <input class="campos" type="text" name="descricao" required placeholder="Descrição da pousada">
                                         </div>
                                         <div class="row">
                                             <input class="campos" type="text" step="any" name="cidade" required
                                                 placeholder="Cidade">
             
                                             <label for="">Opcional</label>
-                                            <input class="campos" type="text" step="any" name="Localizacao"
+                                            <input class="campos" type="text" step="any" name="localizacao"
                                                 placeholder="Localização">
             
                                             <label for="">Escolha sua primeira imagem </label>
@@ -119,17 +120,19 @@
                                     </div>
             
                                     <h3>
-                                        <a href="{{ route('listaUmaPousada', ['pousada_reg_id' => $p['pousada_reg_id']])  }}">{{ $p->pousadaReg['nome'] }}</a>
+                                        <a href="{{ route('listaUmaPousada', ['pousada_reg_id' => $p['pousada_reg_id']])  }}">
+                                            {{ $p->pousadaReg['nome'] }}
+                                        </a>
                                         <i class="fas fa-angle-right"></i>
                                     </h3>
             
                                     <div class="section-5-box-date">
-                                        Diária: <i>R$</i> {{ $p['diaria'] }}
-                                        <p>Localização/cidade: {{$p->pousadaReg->cidade}}</p>
+                                        
+                                        <p> {{ substr($p->pousadaReg->descricao, 0, 38) }} ... </p>                                        
+                                        <p>Cidade: {{$p->pousadaReg->cidade}}</p>
+                                        <p>Localização: {{ $p->pousadaReg->localizacao }}</p>
                                     </div>
-            
-                                    <p>{{ $p['descricao'] }}</p>
-            
+
                                 </div>
             
                              @if (auth()->user())

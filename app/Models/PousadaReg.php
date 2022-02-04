@@ -11,12 +11,13 @@ class PousadaReg extends Model
     protected $fillable = [
         'id',
         'nome',
+        'descricao',
         'cidade',
         'localizacao',
     ];
 
-    public function pousada()
+    public function imagens()
     {       
-        return $this->hasMany('App\Models\Pousada');
+        return $this->hasMany('App\Models\Imagem');
     }
 }

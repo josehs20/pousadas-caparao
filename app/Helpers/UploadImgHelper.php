@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\Pousada;
+use App\Models\Imagem;
 
 if (!function_exists('upImg')) {
 
@@ -13,21 +13,17 @@ if (!function_exists('upImg')) {
     function upImg($request, $reg)
     {
         
-        if ($request->hasFile('image') && $request->file('image')->isValid()) {
-
+        if ($request->hasFile('imagem') && $request->file('imagem')->isValid()) {
             //pega nome da imagem
-            $name = $request->file('image')->getClientOriginalName();
-
-            //armazena na pasta
-            $request->image->storeAs('public/imgPousadas', $name);
+            $name = $request->file('imagem')->getClientOriginalName();
             
-                $pousada = new Pousada();
-                $pousada->imagem = "storage/imgPousadas/$name";
-                $pousada->nome = $request->nome;
-                $pousada->diaria = $request->diaria;
-                $pousada->descricao = $request->descricao;
-                $pousada->pousada_reg_id = $reg->id;
-                $pousada->save();            
+            //armazena na pasta
+            $request->imagem->storeAs('public/imgPousadas', $name);
+            
+            $pousada = new Imagem();
+            $pousada->imagem = "storage/imgPousadas/$name";
+            $pousada->pousada_reg_id = $reg;
+            $pousada->save();            
         }
     }
 }
