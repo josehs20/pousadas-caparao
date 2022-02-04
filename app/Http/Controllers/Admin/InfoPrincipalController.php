@@ -21,15 +21,15 @@ class InfoPrincipalController extends Controller
     public function index()
     {
         $info = InfoPrincipal::first();
-        $pousadas = PousadaReg::all();
-        $pousada = [];
-        foreach ($pousadas as $value) {
+        $pousadasReg = PousadaReg::all();
+        $pousadas = [];
+        foreach ($pousadasReg as $value) {
             if (Pousada::where('pousada_reg_id', $value->id)->first()) {
-                $pousada[] = Pousada::with('pousadaReg')->where('pousada_reg_id', $value->id)->first();
+                $pousadas[] = Pousada::with('pousadaReg')->where('pousada_reg_id', $value->id)->first();
             }
         }
 
-        return view('admin.index', compact('info', 'pousada'));
+        return view('admin.index', compact('info', 'pousadas'));
     }
 
 
@@ -80,6 +80,7 @@ class InfoPrincipalController extends Controller
     {
         $verifica = Pousada::with('pousadaReg')->find($id); //// ;
         //  dd(Pousada::where('pousada_reg_id', $verifica->pousadaReg->id)->count());
+
         if (Pousada::where('pousada_reg_id', $verifica->pousadaReg->id)->count() == 1) {
             PousadaReg::find($verifica->pousadaReg->id)->delete();
 
@@ -149,7 +150,7 @@ class InfoPrincipalController extends Controller
         $pousadas = $pousadaReg->all();
         $pousadas = $this->listaPousadasPai($pousadas);
         //dd(Storage::url($pousadas));
-        return view('admin.pousadas', compact('pousadas'));
+        return view('componentes.todasPousadas', compact('pousadas'));
     }
 
     public function uploadImg(Request $request, Pousada $pousada, $pousada_reg_id)
@@ -199,7 +200,7 @@ class InfoPrincipalController extends Controller
         // dd($pousadaImgs[0]->pousadaReg->id);
         $idFoto = !$request->id ? Pousada::where('pousada_reg_id', $pousadaImgs[0]->pousadaReg->id)->first() : Pousada::find($request->id);
 
-        return view('admin.umaPousadaAdmin', compact('pousadaImgs', 'idFoto'));
+        return view('umaPousada', compact('pousadaImgs', 'idFoto'));
     }
 
 

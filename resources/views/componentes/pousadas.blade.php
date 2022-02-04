@@ -13,22 +13,18 @@
         <div class="row alinhar-pousadas">
             <!-- Listando as pousadas -->
 
-            @foreach ($pousada as $p)
+            @foreach ($pousadas as $p)
 
             <div class="col-md-4 section-5-box wow fadeInUp">
                 <div class="section-5-box-image">
                     <img src="{{ $p['imagem'] }}" alt="portfolio-1">
                 </div>
                 <h3>
-                    @if ( Request::is('info') )
+                    
                     <a
                         href="{{ route('listaUmaPousada', $p['pousada_reg_id'] ? ['pousada_reg_id' => $p['pousada_reg_id']] : null) }}">{{
                         $p->pousadaReg->nome }}</a>
-                    @else
-                    <a
-                        href="{{ route('listaUmaPousadaUsuario', $p['pousada_reg_id'] ? ['pousada_reg_id' => $p['pousada_reg_id']] : null) }}">{{
-                        $p->pousadaReg->nome }}</a>
-                    @endif
+                  
                     <i class="fas fa-angle-right"></i>
                 </h3>
                 <div class="section-5-box-date">
@@ -44,7 +40,7 @@
             <div class="col section-bottom-button wow fadeInUp">
 
                 @if (!auth()->user())
-                <a href="{{route('todasPousadas')}}" class="btn btn-primary btn-customized" role="button">
+                <a href="{{route('imgPousadas')}}" class="btn btn-primary btn-customized" role="button">
                     <i class="fas fa-sync"></i> Ver todas
                 </a>
                 @endif
