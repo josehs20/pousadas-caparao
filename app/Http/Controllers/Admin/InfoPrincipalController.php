@@ -80,16 +80,17 @@ class InfoPrincipalController extends Controller
     {
         $verifica = Pousada::with('pousadaReg')->find($id); //// ;
         //  dd(Pousada::where('pousada_reg_id', $verifica->pousadaReg->id)->count());
+        if ($verifica) {
+            if (Pousada::where('pousada_reg_id', $verifica->pousadaReg->id)->count() == 1) {
+                PousadaReg::find($verifica->pousadaReg->id)->delete();
 
-        if (Pousada::where('pousada_reg_id', $verifica->pousadaReg->id)->count() == 1) {
-            PousadaReg::find($verifica->pousadaReg->id)->delete();
-            
-            return redirect(route("imgPousadas"));
-        } else {            
-            $this->destroy($id);
-            return back()->withInput();
+                return redirect(route("imgPousadas"));
+            } else {
+                $this->destroy($id);
+                return back()->withInput();
+            }
         }
-
+        return redirect(route("imgPousadas"));
     }
     /**
      * Show the form for editing the specified resource.
@@ -197,7 +198,8 @@ class InfoPrincipalController extends Controller
         $idFoto = false;
         $pousadaImgs = Pousada::with('pousadaReg')->where('pousada_reg_id', $pousada_reg_id)->get();
         // dd($pousadaImgs[0]->pousadaReg->id);
-        $idFoto = !$request->id ? Pousada::where('pousada_reg_id', $pousadaImgs[0]->pousadaReg->id)->first() : Pousada::find($request->id);
+      //  $idFoto = !$request->id ? Pousada::where('pousada_reg_id', $pousadaImgs[0]->pousadaReg->id)->first() : Pousada::find($request->id);
+      $idFoto = !$request->id ? Pousada::where('pousada_reg_id', $pousada_reg_id)->first() : Pousada::find($request->id);
 
         return view('umaPousada', compact('pousadaImgs', 'idFoto'));
     }

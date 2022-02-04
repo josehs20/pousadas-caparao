@@ -16,7 +16,7 @@
                 <!-- Listando as pousadas -->
                 <div class="row alinhar-pousadas">
                     <div class="afoto">
-                        <img src="{{ Storage::url(substr($idFoto['imagem'], 8)) }}">
+                        <img src="{{ $idFoto ? Storage::url(substr($idFoto['imagem'], 8)) : ''  }}">
                     </div>
 
                     @if (auth()->user())
@@ -26,7 +26,7 @@
                     @endif
                     
                     @if (auth()->user())
-                        <a href="{{ route('info.destroy', ['info' => $idFoto['id']]) }}"
+                        <a href="{{ route('info.destroy',  $idFoto ? ['info' => $idFoto['id']] : '' )}}"
                             data-confirm="Deseja Realmente Retirar Esse Item Da Mesa?" data-method="DELETE"
                             class="btn btn-danger btn-excluir"> <i class="bi bi-trash"></i></a>
                     @endif
