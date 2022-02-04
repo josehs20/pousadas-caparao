@@ -104,7 +104,6 @@
                         <p>{{ $p->pousadaReg['descricao'] }}</p>
                         <p>{{ $p->pousadaReg['cidade'] }}</p>
                         <p>{{ $p->pousadaReg['localizacao'] }}</p>
-
                     </div>
                 @endforeach
             </div>
