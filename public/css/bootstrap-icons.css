@@ -97,6 +97,7 @@ url(/fonts/vendor/bootstrap-icons/bootstrap-icons.woff?38c4d2499557ae0379fd160e1
 .bi-arrows-collapse::before { content: "\f14b"; }
 .bi-arrows-expand::before { content: "\f14c"; }
 .bi-arrows-fullscreen::before { content: "\f14d"; }
+.bi-arrows-fullscreen { color: #000 }
 .bi-arrows-move::before { content: "\f14e"; }
 .bi-aspect-ratio-fill::before { content: "\f14f"; }
 .bi-aspect-ratio::before { content: "\f150"; }

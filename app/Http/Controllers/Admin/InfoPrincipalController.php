@@ -83,10 +83,9 @@ class InfoPrincipalController extends Controller
 
         if (Pousada::where('pousada_reg_id', $verifica->pousadaReg->id)->count() == 1) {
             PousadaReg::find($verifica->pousadaReg->id)->delete();
-
+            
             return redirect(route("imgPousadas"));
-        } else {
-
+        } else {            
             $this->destroy($id);
             return back()->withInput();
         }

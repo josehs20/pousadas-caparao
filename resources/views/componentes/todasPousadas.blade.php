@@ -18,7 +18,7 @@
             <link rel="stylesheet" href="{{ asset('assets/siedbar/css/style.css') }}">
             
             <a href="{{route('info.index')}}" class="btn personalizado-2 btn-add-voltar">
-                Voltar
+                <i class="bi bi-arrow-left"></i>
             </a>
             @if (auth()->user())
             <a style="color: #fff;" class="btn personalizado-2 btn-add" data-toggle="modal" data-target="#registra">
@@ -89,9 +89,9 @@
                             <h2>Nossas Pousadas</h2>
                             <div class="divider-1 wow fadeInUp"><span></span></div>
                             @if (auth()->user())
-                            <p>Adicione, altere, edite ou exclua suas pousadas.</p>
+                                <p>Adicione, altere, edite ou exclua suas pousadas.</p>
                             @else
-                            <p>Confira todas as nossas pousadas</p>
+                                <p>Confira todas as nossas pousadas</p>
                             @endif
                           
                         </div>
@@ -101,13 +101,12 @@
                         
             
                         @if (sizeof($pousadas) == 0)
-                        <div class="alert alert-primary" role="alert">
-                            nenhuma imagem por enquanto
-                        </div>
+                            <div class="alert alert-primary" role="alert">
+                                Nenhuma imagem por enquanto.
+                            </div>
                         @else
                         <div class="row alinhar-pousadas">
                             @foreach ($pousadas as $p)
-                            
             
                             <div class="col-12 section-5-box wow fadeInUp">
             
@@ -134,16 +133,14 @@
                                 </div>
             
                              @if (auth()->user())
-                             <div>
-            
-                                <a class="btn personalizado-2 btn-alterar" href="{{ route('listaUmaPousada', ['pousada_reg_id' => $p['pousada_reg_id']]) }}"><i class="bi bi-pencil-square"></i></a>
-    
-                                <a href="{{ route('info.destroy', ['info' => $p['id']]) }}"
-                                    data-confirm="Deseja Realmente Retirar Esse Item Da Mesa?" data-method="DELETE"
-                                    class="btn btn-danger"> <i class="bi bi-trash"></i></a>
-                            </div>
+                                <div class="btns">                
+                                    <a class="btn personalizado-2 btn-alterar" href="{{ route('listaUmaPousada', ['pousada_reg_id' => $p['pousada_reg_id']]) }}"><i class="bi bi-pencil-square"></i></a>
+        
+                                    <a href="{{ route('info.destroy', ['info' => $p['id']]) }}"
+                                        data-confirm="Deseja Realmente Retirar Esse Item Da Mesa?" data-method="DELETE"
+                                        class="btn btn-danger"> <i class="bi bi-trash"></i></a>
+                                </div>
                              @endif
-                                  
                              
                             </div>
                             @endforeach
