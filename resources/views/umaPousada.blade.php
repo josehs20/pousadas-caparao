@@ -58,7 +58,7 @@
                                             <div class="form-row">
                                                 <div class="form-group col-md-12">
                                                     <div class="row">
-                                                        <input class="campos" type="file" name="image" required
+                                                        <input class="campos" type="file" name="imagem" required
                                                             class="btn btn-primary btn-customized-2">
                                                     </div>
                                                 </div>
@@ -99,12 +99,12 @@
             </div>
             <div class="div-conteudo-pousada">
                 @foreach ($pousadaImgs as $p)
-                    <div>
-                        <h1>{{ $p['nome'] }}</h1>
-                        <p>{{ $p['diaria'] }}</p>
-
+                    <div>                        
+                        <h1>{{ $p->pousadaReg['nome'] }}</h1>
+                        <p>{{ $p->pousadaReg['descricao'] }}</p>
+                        <p>{{ $p->pousadaReg['cidade'] }}</p>
+                        <p>{{ $p->pousadaReg['localizacao'] }}</p>
                     </div>
-                    <h3>{{ $p['descricao'] }}</h3>
                 @endforeach
             </div>
         </div>

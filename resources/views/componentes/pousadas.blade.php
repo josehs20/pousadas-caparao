@@ -28,9 +28,10 @@
                     <i class="fas fa-angle-right"></i>
                 </h3>
                 <div class="section-5-box-date">
-                    Diária: <i>R$</i> {{ $p['diaria'] }}
+                    <p> {{ substr($p->pousadaReg->descricao, 0, 38) }} ... </p>
+                    <p>{{ $p->pousadaReg['cidade'] }}</p>
+                    <p>{{ $p->pousadaReg['localizacao'] }}</p>
                 </div>
-                <p>{{ $p['descricao'] }}</p>
             </div>
             @endforeach
 
