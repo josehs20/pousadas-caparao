@@ -43,19 +43,20 @@
         <div class="row">
             <div class="col section-bottom-button wow fadeInUp">
 
-                <a @if ( Request::is('info') ) href="{{route('todasPousadasAdmin')}}" @else
-                    href="{{route('todasPousadas')}}" @endif class="btn btn-primary btn-customized" role="button">
+                @if (!auth()->user())
+                <a href="{{route('todasPousadas')}}" class="btn btn-primary btn-customized" role="button">
                     <i class="fas fa-sync"></i> Ver todas
                 </a>
-
-                <!-- Obtendo a url atual e se for 
-                    url do admin eu mostrar botao de editar -->
-                @if ( Request::is('info') )
-                <!-- info é a rota que aparece na url exemplo: localhost:8000/info -->
+                @endif
+                @if (auth()->user())
                 <a class="btn btn-primary btn-customized-2" href="{{ route('imgPousadas')}}" role="button">
                     <i class="fas fa-sync"></i> Editar
                 </a>
                 @endif
+
+                <!-- Obtendo a url atual e se for 
+                    url do admin eu mostrar botao de editar -->
+               
             </div>
         </div>
     </div>

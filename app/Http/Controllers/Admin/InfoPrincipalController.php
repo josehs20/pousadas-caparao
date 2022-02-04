@@ -32,14 +32,6 @@ class InfoPrincipalController extends Controller
         return view('admin.index', compact('info', 'pousada'));
     }
 
-    public function listarPousadas(Request $request)
-    {
-        $pousadas = PousadaReg::all();
-        $pousadas = $this->listaPousadasPai($pousadas);
-
-        return view('componentes.todasPousadasAdmin', compact('pousadas'));
-    }
-
 
     /**
      * Show the form for creating a new resource.

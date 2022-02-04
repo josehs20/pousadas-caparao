@@ -26,8 +26,8 @@ class PaginaPrincipalController extends Controller
 
     public function listarPousadas(Request $request)
     {
-        $todasPousadas = Pousada::get()->toArray();
-        return view('componentes.todasPousadas', compact('todasPousadas'));
+        $pousadas = Pousada::get()->toArray();
+        return view('componentes.todasPousadas', compact('pousadas'));
     }
 
     public function listaUmaPousadaUsuario($pousada_reg_id, Request $request)
