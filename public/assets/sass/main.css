@@ -231,7 +231,7 @@ main {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-color: #122620;
+  background-color: #fff;
 }
 
 .interno {
@@ -249,11 +249,12 @@ main {
       -ms-flex-align: center;
           align-items: center;
   padding: 20px;
-  width: 85%;
+  width: 95%;
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
-  background-color: #fff;
+  background-color: #f8f8f8;
+  margin-top: 50px;
 }
 
 .div-img-pousada {
@@ -322,7 +323,7 @@ main {
           justify-content: space-between;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  width: 100%;
+  width: 90%;
 }
 
 .div-fotos img {
@@ -351,8 +352,8 @@ main {
 }
 
 .afoto img {
-  height: 350px;
-  width: 550px;
+  height: 250px;
+  width: 400px;
 }
 
 .btn-excluir {

@@ -153,25 +153,8 @@ class InfoPrincipalController extends Controller
 
     public function uploadImg(Request $request, Imagem $pousada, $pousada_reg_id)
     {
-        if ($request->hasFile('image') && $request->file('image')->isValid()) {
-
-            //pega nome da imagem
-            $name = $request->file('image')->getClientOriginalName();
-
-            //armazena na pasta
-            $request->image->storeAs('public/imgPousadas', $name);
-
-            //dd($pousada_reg_id);
-            $pousada = new Imagem();
-            $pousada->imagem = "storage/imgPousadas/$name";
-            $pousada->nome = $request->nome;
-            $pousada->diaria = $request->diaria;
-            $pousada->descricao = $request->descricao;
-            $pousada->pousada_reg_id = $pousada_reg_id;
-            $pousada->save();
-
-            return redirect(route('listaUmaPousada', ['pousada_reg_id' => $pousada_reg_id]))->with('Imagem adicionada com sucesso');
-        }
+        upImg($request, $pousada_reg_id);
+        return redirect(route('listaUmaPousada', ['pousada_reg_id' => $pousada_reg_id]))->with('Imagem adicionada com sucesso');
     }
 
     public function pousadaReg(Request $request)
@@ -180,13 +163,14 @@ class InfoPrincipalController extends Controller
         $reg = new PousadaReg();
         $reg->nome = $request->nome;
         $reg->cidade = $request->cidade;
+        $reg->descricao = $request->descricao;
         $reg->localizacao = $request->localizacao ? $request->localizacao : null;
         $reg->save();
 
 
-        //função global para upload de Imagem  
-        //  dd($request->file('image')->isValid());   
-        upImg($request, $reg);
+        //função global para uploa;d de Imagem  
+        $id = $reg->id ;
+        upImg($request, $id);
 
         return redirect(route('imgPousadas'))->with('pousada criada com sucesso');
     }

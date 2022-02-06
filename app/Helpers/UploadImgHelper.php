@@ -12,11 +12,11 @@ if (!function_exists('upImg')) {
      */
     function upImg($request, $reg)
     {
-        
+      
         if ($request->hasFile('imagem') && $request->file('imagem')->isValid()) {
             //pega nome da imagem
             $name = $request->file('imagem')->getClientOriginalName();
-            
+            //dd($reg);
             //armazena na pasta
             $request->imagem->storeAs('public/imgPousadas', $name);
             

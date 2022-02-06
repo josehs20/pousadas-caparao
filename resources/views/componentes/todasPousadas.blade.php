@@ -57,12 +57,8 @@
                                             <input class="campos" type="text" step="any" name="cidade" required
                                                 placeholder="Cidade">
             
-                                            <label for="">Opcional</label>
-                                            <input class="campos" type="text" step="any" name="localizacao"
-                                                placeholder="Localização">
-            
                                             <label for="">Escolha sua primeira imagem </label>
-                                            <input class="campos" type="file" name="image" required
+                                            <input class="campos" type="file" name="imagem" required
                                                 class="btn btn-primary btn-customized-2">
                                         </div>
             
@@ -106,7 +102,7 @@
                                 Nenhuma imagem por enquanto.
                             </div>
                         @else
-                        <div class="row alinhar-pousadas">
+                        <div class="row alinhar-pousadas mx-1">
                             @foreach ($pousadas as $p)
             
                             <div class="col-12 section-5-box wow fadeInUp">

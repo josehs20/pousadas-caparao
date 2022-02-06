@@ -12,13 +12,13 @@
 
     <div class="externo">
         <div class="interno">
+           
             <div class="div-img-pousada">
                 <!-- Listando as pousadas -->
                 <div class="row alinhar-pousadas">
-                    <div class="afoto">
-                        <img src="{{ $idFoto ? Storage::url(substr($idFoto['imagem'], 8)) : ''  }}">
-                    </div>
-
+                    
+                        <img src="{{ $idFoto ? Storage::url(substr($idFoto['imagem'], 8)) : ''  }}" class="img-fluid" alt="...">
+                    
                     @if (auth()->user())
                         <a class="btn personalizado-2 btn-add-foto" data-toggle="modal" data-target="#addpousada">
                             <i class="bi bi-plus-lg"></i>
@@ -77,6 +77,7 @@
                 </div>
                 <div class="row alinhar-pousadas">
                     <div class="div-fotos">
+                        
                         @foreach ($pousadaImgs as $p)
                             <form
                                 action="{{ route('listaUmaPousada', $p->pousadaReg->id ? ['pousada_reg_id' => $p->pousadaReg->id] : null) }}"
@@ -98,14 +99,15 @@
                 </div>
             </div>
             <div class="div-conteudo-pousada">
-                @foreach ($pousadaImgs as $p)
+              
+             
                     <div>                        
                         <h1>{{ $p->pousadaReg['nome'] }}</h1>
                         <p>{{ $p->pousadaReg['descricao'] }}</p>
                         <p>{{ $p->pousadaReg['cidade'] }}</p>
                         <p>{{ $p->pousadaReg['localizacao'] }}</p>
                     </div>
-                @endforeach
+              
             </div>
         </div>
     </div>
