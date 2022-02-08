@@ -26,10 +26,9 @@
                         <div class="form-row">
                             <div class="form-group col-md-12">
                                 <div class="alert alert-success" role="alert">
-                                    <h4 class="alert-heading"><strong>Sub Titulo</strong></h4>
+                                    <h4 class="alert-heading"><strong>Pérolas da região do capraó</strong></h4>
                                     <p>
-                                       Texto.....
-                                    </p>
+                                        Somos pessoas preocupados em passar informações mais concretas   aos turistas que viajam para essa região, mostrando alguns pontos de visitações além do maravilhoso Parque Nacional do Caparaó e seu ponto mais alto :O Pico da Bandeira.                                    </p>
                                     <hr>
                                     <p class="mb-0">
                                         Seja Bem Vindo :)
