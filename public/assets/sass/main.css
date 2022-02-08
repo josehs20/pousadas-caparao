@@ -221,7 +221,7 @@ main {
 
 .externo {
   width: 100%;
-  height: 100%;
+  height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -231,7 +231,7 @@ main {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-color: #fff;
+  background-color: #122620;
 }
 
 .interno {
@@ -249,12 +249,11 @@ main {
       -ms-flex-align: center;
           align-items: center;
   padding: 20px;
-  width: 95%;
+  width: 84%;
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
-  background-color: #f8f8f8;
-  margin-top: 50px;
+  background-color: #fff;
 }
 
 .div-img-pousada {
@@ -285,10 +284,20 @@ main {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  border-left: 1px dotted;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   padding: 10px;
+  border: 1px solid #ccc;
+}
+
+.div-conteudo-pousada h1 {
+  color: #000;
+  font-weight: 400;
+}
+
+.div-conteudo-pousada hr {
+  margin-bottom: 30px;
 }
 
 @media (max-width: 1100px) {
@@ -308,9 +317,8 @@ main {
     margin-top: 50px;
   }
   .div-conteudo-pousada {
-    border-left: 0;
-    border-bottom: 1px dotted;
-    padding: 70px 0;
+    width: 80%;
+    margin-bottom: 30px;
   }
 }
 
@@ -323,7 +331,7 @@ main {
           justify-content: space-between;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  width: 90%;
+  width: 100%;
 }
 
 .div-fotos img {
@@ -352,8 +360,21 @@ main {
 }
 
 .afoto img {
-  height: 250px;
-  width: 400px;
+  padding: 0;
+  height: 350px;
+  width: 550px;
+  -webkit-box-shadow: 1px 1px 10px 10px rgba(0, 0, 0, 0.5);
+          box-shadow: 1px 1px 10px 10px rgba(0, 0, 0, 0.5);
+  border-radius: 3px;
+}
+
+@media (max-width: 1100px) {
+  .afoto {
+    margin: 10px;
+  }
+  .afoto img {
+    height: 250px;
+  }
 }
 
 .btn-excluir {

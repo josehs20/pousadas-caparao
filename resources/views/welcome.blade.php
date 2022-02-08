@@ -12,7 +12,6 @@
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title"><strong>Pérolas da região do capraó</strong></h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
                             <p>

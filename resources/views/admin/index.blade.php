@@ -13,7 +13,6 @@
 
         <!-- Content -->
         <div class="content">
-            <br><br><br>
 
             <!-- Codigo para informar que está na pagina Admin -->
             <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
