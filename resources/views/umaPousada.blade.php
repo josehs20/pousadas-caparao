@@ -12,31 +12,32 @@
 
     <div class="externo">
         <div class="interno">
-           
             <div class="div-img-pousada">
                 <!-- Listando as pousadas -->
                 <div class="row alinhar-pousadas">
-                    
-                        <img src="{{ $idFoto ? Storage::url(substr($idFoto['imagem'], 8)) : ''  }}" class="img-fluid" alt="...">
-                    
-                    @if (auth()->user())
-                        <a class="btn personalizado-2 btn-add-foto" data-toggle="modal" data-target="#addpousada">
-                            <i class="bi bi-plus-lg"></i>
-                        </a>
-                    @endif
-                    
-                    @if (auth()->user())
-                        <a href="{{ route('info.destroy',  $idFoto ? ['info' => $idFoto['id']] : '' )}}"
-                            data-confirm="Deseja Realmente Retirar Esse Item Da Mesa?" data-method="DELETE"
-                            class="btn btn-danger btn-excluir"> <i class="bi bi-trash"></i></a>
-                    @endif
+                    <div class="row afoto">                        
+                        <img  src="{{ $idFoto ? Storage::url(substr($idFoto['imagem'], 8)) : Storage::url(substr($pousadaImgs[0]['imagem'], 8)) }}" alt="...">
+                    </div>
+
+                    <div class="row d-flex justify-content-center">
+                        @if (auth()->user())
+                            <a class="btn personalizado-2 btn-add-foto" data-toggle="modal" data-target="#addpousada">
+                                <i class="bi bi-plus-lg"></i>
+                            </a>
+                        @endif
+    
+                        @if (auth()->user())
+                            <a href="{{ route('info.destroy', $idFoto ? ['info' => $idFoto['id']] : '') }}"
+                                data-confirm="Deseja Realmente Retirar Esse Item Da Mesa?" data-method="DELETE"
+                                class="btn btn-danger btn-excluir"> <i class="bi bi-trash"></i></a>
+                        @endif
+                    </div>
 
                     @foreach ($pousadaImgs as $p)
-
                         {{-- Adiciona novas imagens e desc pousadas modal --}}
-                        <div class="modal fade" id="addpousada" tabindex="-1" role="dialog"
+                        <div class="modal" id="addpousada" tabindex="-1" role="dialog"
                             aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
                                 <div class="modal-content">
 
                                     <div class="modal-header">
@@ -67,6 +68,7 @@
                                         <!-- ---------------------------------------------------- -->
                                         <!-- ↓↓ Botoes para cancelar ou alterar o titulo principal ↓↓ -->
                                         <div class="modal-footer">
+                                            <button type="button" class="btn personalizado-2" data-dismiss="modal">Cancelar</button>
                                             <button type="submit" class="btn personalizado">Adicionar</button>
                                         </div>
                                     </form>
@@ -77,37 +79,34 @@
                 </div>
                 <div class="row alinhar-pousadas">
                     <div class="div-fotos">
-                        
                         @foreach ($pousadaImgs as $p)
+                        <div class="row d-flex justify-content-center">
                             <form
                                 action="{{ route('listaUmaPousada', $p->pousadaReg->id ? ['pousada_reg_id' => $p->pousadaReg->id] : null) }}"
                                 method="get">
-                                <button type="submit" 
-                                        class="btn-fotos" 
-                                        style=" background-image: url({{ Storage::url(substr($p['imagem'], 8)) }});
-                                        background-size: cover;
-                                        background-position: center;
-                                        width: 120px; height: 70px;
-                                        display: flex; justify-content: center; align-items:center;">
-                                    
+                                <button type="submit" class="btn-fotos" style=" background-image: url({{ Storage::url(substr($p['imagem'], 8)) }});
+                                            background-size: cover;
+                                            background-position: center;
+                                            width: 120px; height: 70px;
+                                            display: flex; justify-content: center; align-items:center;">
+
                                     <h3 class="search-ativa"><i class="bi bi-arrows-fullscreen"></i></h3>
                                     <input name="id" type="hidden" value="{{ $p->id }}">
                                 </button>
                             </form>
+                        </div>
                         @endforeach
                     </div>
                 </div>
             </div>
             <div class="div-conteudo-pousada">
-              
-             
-                    <div>                        
-                        <h1>{{ $p->pousadaReg['nome'] }}</h1>
-                        <p>{{ $p->pousadaReg['descricao'] }}</p>
-                        <p>{{ $p->pousadaReg['cidade'] }}</p>
-                        <p>{{ $p->pousadaReg['localizacao'] }}</p>
-                    </div>
-              
+                <h1>{{ $p->pousadaReg['nome'] }}</h1>                
+                <div>
+                    <hr>
+                    <p>{{ $p->pousadaReg['descricao'] }}</p>
+                    <p>{{ $p->pousadaReg['cidade'] }}</p>
+                    <p>{{ $p->pousadaReg['localizacao'] }}</p>
+                </div>
             </div>
         </div>
     </div>

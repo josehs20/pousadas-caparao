@@ -6,48 +6,30 @@
 
         <!-- Incluindo navbar -->
         @include('componentes.navbar')
-        <div class="modal fade" id="sobre" tabindex="-1" role="dialog"
-        aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <form action="{{ route('info.store') }}" method="POST">
-                    @csrf
-                    <div class="modal-header">
-                        <!-- ↓↓ Titulo do modal ↓↓ -->
-                        <p class="mx-auto">
-                            <strong style="font-size: 20px;" class="modal-title">
-                                Titulo
-                            </strong>
-                        </p>
-                        <!-- --------------- -->
-                    </div>
-                    <!-- ↓↓ Texto com as informações ↓↓ --------------------- -->
-                    <div class="modal-body">
-                        <div class="form-row">
-                            <div class="form-group col-md-12">
-                                <div class="alert alert-success" role="alert">
-                                    <h4 class="alert-heading"><strong>Pérolas da região do capraó</strong></h4>
-                                    <p>
-                                        Somos pessoas preocupados em passar informações mais concretas   aos turistas que viajam para essa região, mostrando alguns pontos de visitações além do maravilhoso Parque Nacional do Caparaó e seu ponto mais alto :O Pico da Bandeira.                                    </p>
-                                    <hr>
-                                    <p class="mb-0">
-                                        Seja Bem Vindo :)
-                                    </p>
-                                </div>
-                            </div>
+
+        <div class="modal" tabindex="-1" id="sobre">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title"><strong>Pérolas da região do capraó</strong></h5>
+                        </div>
+                        <div class="modal-body">
+                            <p>
+                                Somos pessoas preocupados em passar informações mais concretas aos turistas
+                                que viajam para essa região, mostrando alguns pontos de visitações além do
+                                maravilhoso Parque Nacional do Caparaó e seu ponto mais alto :O Pico da
+                                Bandeira.
+                            </p>
+                            <p class="mb-0">
+                                Seja Bem Vindo :)
+                            </p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn personalizado-2" data-dismiss="modal">Sair</button>
                         </div>
                     </div>
-                    <!-- ---------------------------------------------------- -->
-                    <!-- ↓↓ Botoes para cancelar ou alterar o titulo principal ↓↓ -->
-                    <div class="modal-footer">
-                        <button type="button" class="btn personalizado-2"
-                            data-dismiss="modal">Sair</button>
-                    </div>
-                    <!-- --------------------------------------------------------- -->
-                </form>
+                </div>
             </div>
-        </div>
-    </div>
         <!-- Dark overlay -->
         <div class="overlay"></div>
 
@@ -55,9 +37,9 @@
         <div class="content">
 
             <!-- open sidebar menu -->
-            <a class="btn btn-primary btn-customized open-menu" href="#" role="button">
+            {{-- <a class="btn btn-primary btn-customized open-menu" href="#" role="button">
                 <i class="fas fa-align-left"></i> <span>Menu</span>
-            </a>
+            </a> --}}
 
             <!-- Top content -->
             <div class="top-content section-container background-image" id="top-content">
@@ -72,7 +54,8 @@
                                 </p>
                             </div>
                             <div class="buttons wow fadeInUp">
-                                <a data-toggle="modal" data-target="#sobre" class="btn btn-primary btn-customized scroll-link" href="#section-2" role="button">
+                                <a data-toggle="modal" data-target="#sobre"
+                                    class="btn btn-primary btn-customized scroll-link" href="#section-2" role="button">
                                     <i class="bi bi-info-circle"></i> Sobre nós
                                 </a>
                                 <a class="btn btn-primary btn-customized-2 scroll-link" href="#section-5" role="button">
@@ -96,16 +79,20 @@
                     <div class="div-introducao">
                         <!-- Textos da introdução -->
                         <div class="section-2-box wow fadeInLeft">
-                            <h3>{{ $info->titulointroducao }}</h3>
+                            <h3>
+                                <strong>
+                                    {{ $info->titulointroducao }}
+                                </strong>
+                            </h3>
                             <p class="medium-paragraph">
-                                {{ $info->introducao }}
+                               &nbsp; &nbsp;  {{ $info->introducao }}
                             </p>
-                           
+
                         </div>
                         <!-- Imagem da introdução -->
                         <div class="section-2-box wow fadeInUp">
                             <img src="{{ asset('assets/images/pico-bandeira.jpg') }}" alt="about-us">
-                        
+
                         </div>
                     </div>
                 </div>
@@ -118,30 +105,30 @@
             <div class="d-flex justify-content-center">
                 <div id="carouselExampleIndicators" class="carousel slide carousel-fotos" data-ride="carousel">
                     <ol class="carousel-indicators">
-                      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
                     </ol>
-                    <div style="width: 700px; height:600px;" class="carousel-inner">
-                      <div class="carousel-item active">
-                        <img src="{{ asset('assets/images/carrosel1.jpg') }}" class="d-block w-100" alt="...">
-                      </div>
-                      <div class="carousel-item">
-                        <img src="{{ asset('assets/images/carrosel2.jpg') }}" class="d-block w-100" alt="...">
-                      </div>
-                      <div class="carousel-item">
-                        <img src="{{ asset('assets/images/carrosel3.jpg') }}" class="d-block w-100" alt="...">
-                      </div>
+                    <div class="carousel-inner" id="slider-s">
+                        <div class="carousel-item active">
+                            <img src="{{ asset('assets/images/carrosel1.jpg') }}" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="{{ asset('assets/images/carrosel2.jpg') }}" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="{{ asset('assets/images/carrosel3.jpg') }}" class="d-block w-100" alt="...">
+                        </div>
                     </div>
                     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                      <span class="sr-only">Previous</span>
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
                     </a>
                     <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                      <span class="sr-only">Next</span>
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
                     </a>
-                  </div>
+                </div>
             </div>
 
             <!-- Section 4 -->
