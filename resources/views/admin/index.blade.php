@@ -254,7 +254,7 @@
                         <div class="form-row">
                             <div class="form-group col-md-12">
                                 <textarea name="introducao" placeholder="Introdução" class="form-control"
-                                    id="inputAddress" cols="30" rows="5">aa</textarea>
+                                    id="inputAddress" cols="30" rows="5"></textarea>
 
                             </div>
                         </div>
