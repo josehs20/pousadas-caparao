@@ -278,8 +278,8 @@
                         <div class="modal-header">
                             <!-- ↓↓ Titulo do modal ↓↓ -->
                             <p class="mx-auto">
-                                Introdução atual: <strong style="font-size: 20px;" class="modal-title"
-                                    id="exampleModalLabel">{{ $info->introducao }}</strong>
+                                Titulo da Introdução atual: <strong style="font-size: 20px;" class="modal-title"
+                                    id="exampleModalLabel">{{ $info->titulointroducao }}</strong>
                             </p>
                             <!-- --------------- -->
                         </div>
@@ -287,8 +287,8 @@
                         <div class="modal-body">
                             <div class="form-row">
                                 <div class="form-group col-md-12">
-                                    <input name="introducao" type="text" class="form-control" id="inputAddress"
-                                        placeholder="Introdução">
+                                    <textarea name="introducao" placeholder="Introdução" class="form-control" id="inputAddress" cols="30" rows="5">aa</textarea>
+                                 
                                 </div>
                             </div>
                         </div>
@@ -393,9 +393,11 @@
                                 {{ $info->titulointroducao }}
                             </a>
                         </h3>
+                        
                         <p class="medium-paragraph">
-                            <a data-toggle="modal" data-target="#modalIntroducao">
-                                {{ $info->introducao }}
+                            <a data-toggle="modal" data-target="#modalIntroducao" style="word-break:break-all;">
+                                
+                                {{$info->introducao }}
                             </a>
                         </p>
                     </div>

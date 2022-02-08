@@ -101,6 +101,7 @@
                             <p class="medium-paragraph">
                                 {{ $info->introducao }}
                             </p>
+                           
                         </div>
                         <!-- Imagem da introdução -->
                         <div class="section-2-box wow fadeInUp">

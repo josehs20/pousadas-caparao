@@ -57,14 +57,6 @@ class InfoPrincipalController extends Controller
             $info->save();
         }
 
-        $verificapousada =  Imagem::find(1);
-        if ($verificapousada) {
-            $verificapousada->update($request->all());
-        } else {
-            $pousada = new Imagem($request->all());
-            $pousada->save();
-        }
-
         return redirect(route("info.index"));
     }
 

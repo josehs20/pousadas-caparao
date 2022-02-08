@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class InfoPrincipal extends Model
 {
-    protected $table = 'info_Principal';
+    protected $table = 'info_principal';
     protected $fillable = [
     'tituloPrincipal',
     'titulo',
